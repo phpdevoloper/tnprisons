@@ -1,13 +1,10 @@
 <?php 
+session_start(); 
+if (isset($_SESSION)) {
 include("inc/header1.php");
 include_once 'inc/DBConnection.php';
 $database = new DBConnection();
 $db = $database->openConnection();
-$prison_type = $_SESSION['prison_type'];
-// $sql = "SELECT * FROM prison_types WHERE prison_type = :prison_type ORDER BY prison_type_id ASC" ;
-$stmt = $db->prepare("SELECT * FROM prison_types WHERE prison_code = :prison_type");
-$stmt->execute(['prison_type' => $prison_type]); 
-$user = $stmt->fetch();
 ?>
 
 <div class="content-wrapper">
@@ -16,7 +13,7 @@ $user = $stmt->fetch();
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Menu</h1>
+            <h1>Menus</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -32,25 +29,92 @@ $user = $stmt->fetch();
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-12">
-            <div class="card">
+          <div class="col-md-4">
+            <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title"><?php echo $user['prison_type']; ?></h3>
-                <div class="float-right">
-                    <button type="button" class="btn btn-block btn-primary btn-sm" data-toggle="modal" data-target="#modal-xl"><i class="fa fa-plus" style="padding-right:5px;"></i>Add New</button>
+                <h3 class="card-title">Add New Menu</h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
                 </div>
               </div>
-              <!-- /.card-header -->
-              <div class="card-body"></div>
-              <!-- /.card-body -->
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Menu Name(EN)</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Menu Name(TA)</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label>Parent Menu Items</label>
+                  <select class="form-control">
+                    <option>None</option>
+                    <?php 
+                    try
+                    {
+                        $sql = "SELECT * FROM public.menus ORDER BY menu_id ASC";
+                        foreach ($db->query($sql) as $row) {  var_dump($row);?>
+                          <option value="<?php echo $row["menu_id"]; ?>"><?php echo $row["menu_name_en"]; ?></option>
+                    <?php   }
+                    }
+                    catch (PDOException $e)
+                    {
+                        echo "There is some problem in connection: ". $e->getMessage();
+                    }
+                    ?>
+                  </select>
+                </div>
+              </div>
+              <div class="card-footer" style="text-align:end">
+                <button type="submit" class="btn btn-info">Submit</button>
+              </div>
             </div>
-            <!-- /.card -->
           </div>
-          <!-- /.col -->
+          <div class="col-md-8">
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Main Menus</h3>
+              </div>
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <tr>
+                        <th>S.No</th>
+                        <th>Menu Name(EN)</th>
+                        <th>Menu Name(TAM)</th>
+                      </tr>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <?php try
+                    {
+                        $i = 1;
+                        $sql = "SELECT * FROM public.menus ORDER BY menu_id ASC";
+                        foreach ($db->query($sql) as $row) { ?>
+                          <tr>
+                          <th><?php echo $i; ?></th>
+                          <th><?php echo $row["menu_name_en"]; ?></th>
+                          <th><?php echo $row["menu_name_ta"]; ?></th>
+                        </tr>
+                    <?php  $i++; }
+                    }
+                    catch (PDOException $e)
+                    {
+                        echo "There is some problem in connection: ". $e->getMessage();
+                    }?>
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- /.row -->
       </div>
-      <!-- /.container-fluid -->
+        <!-- /.row -->
     </section>
     <!-- /.content -->
   </div>
@@ -119,4 +183,8 @@ $user = $stmt->fetch();
     </div>
   </div>
     <!-- /.modal -->
-  <?php include("inc/footer.php");?>
+<?php include("inc/footer.php");
+}else{
+  header("Location:index.php");
+}
+?>

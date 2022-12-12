@@ -1,7 +1,8 @@
   <?php 
+  session_start();
+  if (!empty($_SESSION)) {
   include_once 'inc/DBConnection.php';
   include("inc/header1.php"); 
-  if (isset($_SESSION["user_data"])) {
   ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -267,10 +268,8 @@
     </section>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
-  <?php include("inc/footer.php");
-  }
-  // else{
-  //   header("Location: index.php");
-  // }
-  ?>
+<?php include("inc/footer.php");
+}else{
+  header("Location:index.php");
+}
+?>

@@ -1,3 +1,7 @@
+<?php include('inc/DBConnection.php'); 
+$database = new DBConnection();
+$db = $database->openConnection();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -99,11 +103,24 @@
       <div class="container">
         <nav id="navbar" class="navbar">
           <ul>
-            <li>
-              <a class="nav-link scrollto active" href="#hero"
-                ><span>Home</span></a>
-            </li>
+            <?php $sql ="SELECT * FROM public.menus ORDER BY menu_id ASC ";
+            foreach ($db->query($sql) as $row) {
+            ?>
             <li class="dropdown">
+              <a class="nav-link scrollto active" href="#hero"><span><?php echo $row['menu_name_en'];?>
+              <!-- <i class="bi bi-chevron-down"></i> -->
+              </span></a>
+              <ul><?php
+                  $sql ="SELECT * FROM sub_menus where cate_code='".$row['menu_id']."' ORDER BY menu_id ASC ";
+                  foreach ($db->query($sql) as $menus) { ?>
+                 <?php if ($menus['cate_code']) { ?>
+                        <li><a href="#"><?php echo $menus['menu_name_en'];?></a></li>
+                    <?php  }else {?>
+                    <?php } } ?>
+                </ul>
+            </li>
+            <?php } ?>
+            <!-- <li class="dropdown">
               <a class="nav-link scrollto" href="#about"
                 >About Us<i class="bi bi-chevron-down"></i>
               </a>
@@ -117,95 +134,7 @@
                 <li><a href="#">Modernisation Drive</a></li>
                 <li><a href="#">Latest Development of Public Importance</a></li>
               </ul>
-            </li>
-            <li class="dropdown">
-              <a class="nav-link scrollto" href="#about"
-                ><span>Prison Administration</span
-                ><i class="bi bi-chevron-down"></i
-              ></a>
-              <ul>
-                <li>
-                  <a href="#">Headquarters</a>
-                </li>
-                <li><a href="#">Range Administration</a></li>
-                <li><a href="#">C.P. / B.S. Administration</a></li>
-                <li><a href="#">Probation Branch</a></li>
-                <li>
-                  <a href="#">Regional Probation Office Administration</a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a class="nav-link scrollto" href="#services"
-                ><span>Who's Who</span><i class="bi bi-chevron-down"></i
-              ></a>
-              <ul>
-                <li>
-                  <a href="#"
-                    >Director General of Prisons and Correctional Services</a
-                  >
-                </li>
-                <li><a href="#">Dy. Inspector General of Prisons (HQrs)</a></li>
-                <li><a href="#">Dy. Inspector General of Prisons, Ranges</a></li>
-                <li><a href="#">Chief Probation Superintendent</a></li>
-                <li>
-                  <a href="#">Superintendent of Prisons, Central Prisons</a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a class="nav-link scrollto" href="#services"
-                ><span
-                  >Prisons in Tamil Nadu<i class="bi bi-chevron-down"></i></span
-              ></a>
-              <ul>
-                <li>
-                  <a href="#">Model Prison complex- Puzhal</a>
-                </li>
-                <li><a href="#">Central Prison, Coimbatore</a></li>
-                <li><a href="#">Central Prison, Cuddalore</a></li>
-                <li><a href="#">Central Prison, Madurai</a></li>
-                <li>
-                  <a href="#">Central Prison, Palayamkottai</a>
-                </li>
-                <li>
-                  <a href="#">Central Prison, Salem</a>
-                </li>
-                <li>
-                  <a href="#">Central Prison, Tiruchirapalli</a>
-                </li>
-                <li>
-                  <a href="#">Central Prison, Vellore</a>
-                </li>
-                <li>
-                  <a href="#">Borstal School, Pudukottai</a>
-                </li>
-                <li>
-                  <a href="#">Special Prison for Women, Tiruchirapalli</a>
-                </li>
-                <li>
-                  <a href="#">Special Prison for Women, Vellore</a>
-                </li>
-                <li>
-                  <a href="#">District Jails</a>
-                </li>
-                <li>
-                  <a href="#">Sub Jails</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a class="nav-link scrollto" href="#services">Prisoner's Corner</a>
-            </li>
-            <li>
-              <a class="nav-link scrollto" href="#services"
-                >Reformation of Prisoners</a
-              >
-            </li>
-            <li>
-              <a class="nav-link scrollto" href="#services">Recruitments</a>
-            </li>
-            <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+            </li> -->
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>

@@ -1,10 +1,12 @@
 <?php 
+session_start(); 
+if (isset($_SESSION)) {
 include("inc/header1.php");
 include_once 'inc/DBConnection.php';
 $database = new DBConnection();
 $db = $database->openConnection();
 $prison_type = $_SESSION['prison_type'];
-// $sql = "SELECT * FROM prison_types WHERE prison_type = :prison_type ORDER BY prison_type_id ASC" ;
+$sql = "SELECT * FROM prison_types WHERE prison_type = :prison_type ORDER BY prison_type_id ASC" ;
 $stmt = $db->prepare("SELECT * FROM prison_types WHERE prison_code = :prison_type");
 $stmt->execute(['prison_type' => $prison_type]); 
 $user = $stmt->fetch();
@@ -66,17 +68,19 @@ $user = $stmt->fetch();
                         <td><?php echo $row["prison_dist"]; ?></td>
                         <td><?php echo $row["prison_jurisd"]; ?></td>
                         <td><?php echo $row["prison_addr"]; ?></td>
-                        <td>
-                          <a href="javascript:void(0);" class="prison_edit" data-toggle="modal" data-target="#modal-x" style="padding:5px; border:1px solid black;background:javascript:void(0);d4e3c2;"
-                          data-prison_id      ="<?php echo $row["prison_id"];?>"
-                          data-prison_name    ="<?php echo $row["prison_name"];?>"
-                          data-prison_locan   ="<?php echo $row["prison_locan"];?>" 
-                          data-prison_dist    ="<?php echo $row["prison_dist"];?>"
-                          data-prison_type    ="<?php echo $row["prison_type"];?>"
-                          data-prison_jurisd  ="<?php echo $row["prison_jurisd"];?>"
-                          data-prison_addr    ="<?php echo $row["prison_addr"];?>"
-                          ><i class="fa fa-edit"></i></a>
-                          <a href="javascript:void(0);" class="toat" style="padding:5px; border:1px solid black;background:#d4e3c2;color:red;"><i class="fa fa-trash"></i></a>
+                        <td class="py-0 align-middle">
+                          <div class="btn-group btn-group-sm">
+                            <a href="javascript:void(0);" class="prison_edit btn btn-info" data-toggle="modal" data-target="#modal-x"
+                            data-prison_id      ="<?php echo $row["prison_id"];?>"
+                            data-prison_name    ="<?php echo $row["prison_name"];?>"
+                            data-prison_locan   ="<?php echo $row["prison_locan"];?>" 
+                            data-prison_dist    ="<?php echo $row["prison_dist"];?>"
+                            data-prison_type    ="<?php echo $row["prison_type"];?>"
+                            data-prison_jurisd  ="<?php echo $row["prison_jurisd"];?>"
+                            data-prison_addr    ="<?php echo $row["prison_addr"];?>"
+                            ><i class="fa fa-edit"></i></a>
+                            <a href="javascript:void(0);" class="toat btn btn-danger"><i class="fa fa-trash"></i></a>
+                          </div>
                         </td>
                     </tr>
                     <?php }
@@ -231,4 +235,8 @@ $user = $stmt->fetch();
     </div>
   </div>
     <!-- /.modal -->
-  <?php include("inc/footer.php");?>
+<?php include("inc/footer.php");
+}else{
+  header("Location:index.php");
+}
+?>

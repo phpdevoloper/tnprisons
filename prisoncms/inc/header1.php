@@ -1,17 +1,14 @@
-<?php session_start(); 
+<?php 
 include_once 'inc/DBConnection.php';
 $database = new DBConnection();
 $db = $database->openConnection();
-if (basename($_SERVER['SCRIPT_FILENAME']) !== "prisons.php") {
-   $_SESSION["page_title"] = "";
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>Prisons departments</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -45,7 +42,7 @@ if (basename($_SERVER['SCRIPT_FILENAME']) !== "prisons.php") {
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="assets/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+    <img class="animation__shake" src="assets/images/logo/TamilNadu_Logo.png" alt="AdminLTELogo" height="60" width="60">
   </div>
 
   <!-- Navbar -->
@@ -120,8 +117,8 @@ if (basename($_SERVER['SCRIPT_FILENAME']) !== "prisons.php") {
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <img src="assets/images/logo/TamilNadu_Logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Department of Prisons and Correctional Services</span>
     </a>
 
     <!-- Sidebar -->
@@ -172,8 +169,8 @@ if (basename($_SERVER['SCRIPT_FILENAME']) !== "prisons.php") {
               </p>
             </a>
           </li>
-          <li class="nav-item <?php echo !empty($_SESSION["page_title"])?'menu-open':'';?>">
-            <a href="#" class="nav-link <?php echo !empty($_SESSION["page_title"])?'active':'';?>">
+          <li class="nav-item <?php echo basename($_SERVER['SCRIPT_FILENAME']) == "prisons.php"?'menu-open':'';?>">
+            <a href="#" class="nav-link <?php echo basename($_SERVER['SCRIPT_FILENAME']) == "prisons.php"?'active':'';?>">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Prison in Tamil Nadu
@@ -186,7 +183,7 @@ if (basename($_SERVER['SCRIPT_FILENAME']) !== "prisons.php") {
                   foreach ($db->query($sql) as $row) {
               ?>
               <li class="nav-item">
-                <a href="#" class="nav-link menu_a <?php echo !empty($_SESSION["page_title"]) && $_SESSION["page_title"] == $row["prison_type"] ?'active':'';?>" data-prison_code = "<?php echo $row['prison_code'];?>" data-page_title = "<?php echo $row['prison_type'];?>">
+                <a href="#" class="nav-link menu_a <?php echo basename($_SERVER['SCRIPT_FILENAME']) == "prisons.php" && $_SESSION["page_title"] == $row["prison_type"] ?'active':'';?>" data-prison_code = "<?php echo $row['prison_code'];?>" data-page_title = "<?php echo $row['prison_type'];?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p><?php echo $row['prison_type']; ?></p>
                 </a>
