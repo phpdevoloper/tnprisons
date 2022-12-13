@@ -1,3 +1,8 @@
+<?php 
+include('inc/DBConnection.php'); 
+$database = new DBConnection();
+$db = $database->openConnection();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -51,7 +56,7 @@
   <body>
     <div class="container-fluid bg-light p-0">
       <div class="row gx-0 d-none d-lg-flex">
-        <div class="col-lg-7 px-5 text-start">
+        <div class="col-lg-5 px-5 text-start">
           <div class="h-100 d-inline-flex align-items-center py-3 me-4">
             <small class="fa fa-map-marker-alt text-primary me-2"></small>
             <small>சிறைகள் மற்றும் சீர்திருத்தப்பணிகள் துறை</small>
@@ -81,12 +86,12 @@
             ></a>
             <nav id="navbar1" class="navbar">
               <ul>
-                <li class="dropdown"><a href="#" class="nav-link scrollto">LAN <i class="bi bi-chevron-down"></i></a>
-                <ul>
-                  <li><a href="javascript:void(0);" data-page_title="en">ENG</a></li>
-                  <li><a href="javascript:void(0);" data-page_title="ta">TAM</a></li>
-                </ul>
-              </li>
+                <li class="dropdown">
+                  <a class="nav-link" href="#">தமிழ்</a>
+                  <ul>
+                    <li><a href="#" data-page_title="en">ENG</a></li>
+                  </ul>
+                </li>
               </ul>
             </nav>
           </div>
@@ -94,205 +99,44 @@
       </div>
     </div>
     <!-- Navbar Start -->
-    <div
-      id="header"
-      class="container d-flex align-items-center justify-content-between"
-    >
-      <h1 class="logo">
-        <a href="index.html"
-          ><img src="images/logo/TamilNadu_Logo.svg.png" alt="" />சிறைகள் மற்றும் சீர்திருத்தப்பணிகள் துறை<br />
-          <p class="sub_head">தமிழ்நாடு</p></a
-        >
-      </h1>
-    </div>
-    <div class="container">
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li class="dropdown">
-            <a class="nav-link scrollto active" href="#hero"
-              ><span>முகப்பு பக்கம் <i class="bi bi-chevron-down"></i></span></a>
-              <ul>
-                <li><a href="#">புதியது என்ன</a></li>
-                <li><a href="#">காவல்துறை இயக்குநர்/சிறைகள் (ம) சீர்திருத்தப்பணிகள் துறை தலைமை இயக்குநரின் செய்தி</a></li>
-                <li><a href="#">செய்திகள் / நிகழ்வுகள்</a></li>
-                <li><a href="#">சிறைச் சாலை பலகை</a></li>
-                <li><a href="#">சிறைவாசிகளின் பக்கம்</a></li>
-                <li><a href="#">நியமனம்</a></li>
-                <li><a href="#">நிகழ்வுகள், புகைப்படம், கானோளி காட்சியங்கள் </a></li>
-                <li><a href="#">ஒப்பந்தங்கள்</a></li>
-                <li><a href="#">தகவல் அறியும் உரிமை சட்டம்</a></li>
-                <li><a href="#">தொடர்பு விவரங்கள் </a></li>
-                <li><a href="#">தொடர்பு இணைப்புகள் </a></li>
-                <li><a href="#">தினசரி சிறை அடைப்பு விவரங்கள்</a></li>
-                <li><a href="#">வழி முன்னோக்கி</a></li>
-              </ul>
-          </li>
-          <li class="dropdown">
-            <a class="nav-link scrollto" href="#about"
-              >சிறை பற்றிய தகவல்கள்<i class="bi bi-chevron-down"></i>
+    <div id="header" class="container justify-content-between">
+      <div class="row">
+        <div class="col-lg-2 text-center">
+            <img class="prison_logo" src="images/logo/TamilNadu_Logo.svg.png" alt=""/>
+        </div>
+        <div class="col-lg-10 align-items-center">
+          <div class="header-title">
+            <a href="index.php">
+              <h3>சிறைகள் மற்றும் சீர்திருத்தப்பணிகள் துறை</h3>
+              <h5>தமிழ்நாடு</h5>
             </a>
-            <ul>
-              <li><a href="#">புறநிலை (அ) குறிக்கோள்கள்</a></li>
-              <li><a href="#">முன்னோக்கம்/குறிக்கோள்/கொள்கை</a></li>
-              <li><a href="#">சிறையின் தோற்றம் /இடம்</a></li>
-              <li><a href="#">சிறையின் வகைப்பாடு</a></li>
-              <li><a href="#">சிறைகளின் அதிகார வரம்பு</a></li>
-              <li><a href="#">சிறைவாசிகளின்வகைப்பாடு</a></li>
-              <li><a href="#">சிறையின் அமைப்பு</a></li>
-              <li><a href="#">சிறைகளின் நவீன தொழில் நுட்பம்</a></li>
-              <li><a href="#">முயற்சிகள் மற்றும் சமீபத்திய சிறப்புகள்/ மேம்பாடுகள்</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a class="nav-link scrollto" href="#about"><span>சிறைநிர்வாக அமைப்பு</span><i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">தமைமையகம்</a></li>
-              <li><a href="#">சரக நிர்வாகம்</a></li>
-              <li><a href="#">சிறை நிர்வாகம்</a></li>
-              <li><a href="#">நன்னடத்தை பிரிவு</a></li>
-              <li><a href="#">பணியாளர்களின் விவரம்</a></li>
-              <li><a href="#">பணியாளர்களுக்கு அளிக்கப்படும் பயிற்சிகள்</a></li>
-            </ul>
-          </li>
-          <!-- <li class="dropdown">
-            <a class="nav-link scrollto" href="#services"
-              ><span>Who's Who</span><i class="bi bi-chevron-down"></i
-            ></a>
-            <ul>
-              <li>
-                <a href="#"
-                  >Director General of Prisons and Correctional Services</a
-                >
-              </li>
-              <li><a href="#">Dy. Inspector General of Prisons (HQrs)</a></li>
-              <li><a href="#">Dy. Inspector General of Prisons, Ranges</a></li>
-              <li><a href="#">Chief Probation Superintendent</a></li>
-              <li>
-                <a href="#">Superintendent of Prisons, Central Prisons</a>
-              </li>
-            </ul>
-          </li> -->
-          <li class="dropdown">
-            <a class="nav-link scrollto" href="#services"
-              ><span
-                >தமிழ்நாட்டில் உள்ள சிறைகள்<i class="bi bi-chevron-down"></i></span
-            ></a>
-            <ul>
-              <li>
-                <a href="#">நவீன சிறை வளாகம்- புழல் சிறை வாளாகம்</a>
-              </li>
-              <li class="dropdown">
-                <a href="#" class="nav-link scrollto">மத்திய சிறைகள் <i class="bi bi-chevron-down"></i></a>
-              <ul>
-                <li><a href="#">மத்திய சிறை -1 (தண்டனை) புழல்</a></li>
-                <li><a href="#">மத்திய சிறை -2 (விசாரணை) புழல்</a></li>
-                <li><a href="#">மத்திய சிறை, வேலூர்</a></li>
-                <li><a href="#">மத்திய சிறை, கடலூர்</a></li>
-                <li><a href="#">மத்திய சிறை, திருச்சி</a></li>
-                <li><a href="#">மத்திய சிறை, சேலம்</a></li>
-                <li><a href="#">மத்திய சிறை, கோயம்புத்தூர்</a></li>
-                <li><a href="#">மத்திய சிறை, மதுரை</a></li>
-                <li><a href="#">மத்திய சிறை, பாளையங்கோட்டை</a></li>
-              </ul>
-            </li>
-              <li><a href="#">பார்ஸ்டல் பள்ளி மற்றும் மாவட்ட சிறை, புதுக்கோட்டை </a></li>
-              <li><a href="#">பெண்கள் தனிச் சிறை, புழல்</a></li>
-              <li>
-                <a href="#">பெண்கள் தனிச் சிறை, வேலூர்</a>
-              </li>
-              <li>
-                <a href="#">பெண்கள் தனிச் சிறை, திருச்சி</a>
-              </li>
-              <li>
-                <a href="#">பெண்கள் தனிச் சிறை, கோவை</a>
-              </li>
-              <li>
-                <a href="#">பெண்கள் தனிச் சிறை, மதுரை</a>
-              </li>
-              <li>
-                <a href="#">மாவட்டச் சிறைகள்</a>
-              </li>
-              <li>
-                <a href="#">தனிக்கிளைச் சிறைகள்</a>
-              </li>
-              <li>
-                <a href="#">கிளைச் சிறைகள்</a>
-              </li>
-              <li>
-                <a href="#">திறந்த வெளிச் சிறைகள்</a>
-              </li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#">சிறைவாசிகளுக்கு பணி வலயம் <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="">சிறைவாசிகளுக்கான சிறையில் நீதிமன்றம்</a></li>
-              <li><a href="">சிறைவாசிகளின் நேர்காணல் (சிறைவாசிகளை பார்வையிடுதல்)</a></li>
-              <li class="dropdown">
-                <a href="">சிறைவாசிகளின் நல பணிகள் <i class="bi bi-chevron-down"></i></a>
-                <ul>
-                  <li><a href="">உடல் நலம் மற்றும் பராமரிப்பு</a></li>
-                  <li><a href="">மன நல மருத்துவம் </a></li>
-                  <li><a href="">கொரோனா தற்காப்பு நடவடிக்கைகள் </a></li>
-                  <li><a href="">விளையாட்டுகள்</a></li>
-                  <li><a href="">நூலகம்</a></li>
-                  <li><a href="">புகார் பெட்டி </a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- Navbar End -->
-    <!-- ======= Header ======= -->
-    <!-- <header id="header" class="fixed-top">
-      <div class="container d-flex align-items-center justify-content-between">
-        <h1 class="logo">
-          <a href="index.html"
-            ><img src="images/logo/TamilNadu_Logo.svg.png" alt="" />Department
-            of Prisons and Correctional Services</a
-          >
-        </h1>
-
+    <div id="menu-bar">
+      <div class="container">
         <nav id="navbar" class="navbar">
           <ul>
-            <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-            <li><a class="nav-link scrollto" href="#about">About</a></li>
-            <li><a class="nav-link scrollto" href="#services">Services</a></li>
-            <li>
-              <a class="nav-link scrollto" href="#portfolio">Portfolio</a>
-            </li>
-            <li><a class="nav-link scrollto" href="#team">Team</a></li>
+            <?php $sql ="SELECT * FROM public.menus ORDER BY menu_id ASC ";
+            foreach ($db->query($sql) as $row) {
+            ?>
             <li class="dropdown">
-              <a href="#"
-                ><span>Drop Down</span> <i class="bi bi-chevron-down"></i
-              ></a>
-              <ul>
-                <li><a href="#">Drop Down 1</a></li>
-                <li class="dropdown">
-                  <a href="#"
-                    ><span>Deep Drop Down</span>
-                    <i class="bi bi-chevron-right"></i
-                  ></a>
-                  <ul>
-                    <li><a href="#">Deep Drop Down 1</a></li>
-                    <li><a href="#">Deep Drop Down 2</a></li>
-                    <li><a href="#">Deep Drop Down 3</a></li>
-                    <li><a href="#">Deep Drop Down 4</a></li>
-                    <li><a href="#">Deep Drop Down 5</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">Drop Down 2</a></li>
-                <li><a href="#">Drop Down 3</a></li>
-                <li><a href="#">Drop Down 4</a></li>
-              </ul>
+              <a class="nav-link scrollto active" href="#hero"><span><?php echo $row['menu_name_ta'];?>
+              <!-- <i class="bi bi-chevron-down"></i> -->
+              </span></a>
+              <ul><?php
+                  $sql ="SELECT * FROM sub_menus where cate_code='".$row['menu_id']."' ORDER BY menu_id ASC ";
+                  foreach ($db->query($sql) as $menus) { ?>
+                 <?php if ($menus['cate_code']) { ?>
+                        <li><a href="<?php echo $menus['page_url'];?>"><?php echo $menus['menu_name_ta'];?></a></li>
+                    <?php  }else {?>
+                    <?php } } ?>
+                </ul>
             </li>
-            <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+            <?php } ?>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
       </div>
-    </header> -->
-    <!-- End Header -->
+    </div>

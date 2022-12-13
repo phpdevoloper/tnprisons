@@ -1,6 +1,5 @@
 <?php 
 session_start();
 $_SESSION['lang'] = $_POST["title"];
-
-// var_dump($_SESSION);
+echo json_encode(["code"=>200,"status"=>"sucess"]);
 ?>

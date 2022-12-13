@@ -1,17 +1,14 @@
 <?php 
-// session_start();
-// // var_dump($_SESSION);die;
-// if(empty($_SESSION)){
-//   $_SESSION['lang'] = "en";
-// }else{
-//   // var_dump($_SESSION);
-//   if (isset($_SESSION['lang'])) {
-//       include("inc/header_".$_SESSION['lang'].".php"); 
-//   }
-// }
-
-// } 
-include("inc/header_en.php");?>
+session_start();
+// var_dump($_SESSION['lang']);
+if(isset($_SESSION['lang']) && $_SESSION['lang'] !="") {
+  include("inc/header_".$_SESSION['lang'].".php");
+}else{
+  $_SESSION['lang'] = 'en';
+  
+  include("inc/header_.".$_SESSION['lang'].".php");
+}
+?>
 <!-- ======= Hero Section ======= -->
  <section id="hero">
       <div

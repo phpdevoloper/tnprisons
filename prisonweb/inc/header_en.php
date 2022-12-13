@@ -56,7 +56,7 @@ $db = $database->openConnection();
     <div class="top-bar">
       <div class="container-fluid bg-light p-0">
         <div class="row gx-0 d-none d-lg-flex">
-          <div class="col-lg-7 px-5 text-start">
+          <div class="col-lg-5 px-5 text-start">
             <div class="h-100 d-inline-flex align-items-center me-4">
               <small class="fa fa-map-marker-alt text-primary me-2"></small>
               <small>Department of Prisons and Correctional Services</small>
@@ -76,6 +76,18 @@ $db = $database->openConnection();
               <a class="btn btn-sm-square text-primary me-0" href=""
                 ><i class="bx bxl-instagram"></i
               ></a>
+              <div>
+                <nav id="navbar1" class="navbar">
+                  <ul>
+                    <li class="dropdown">
+                      <a class="nav-link" href="#">ENG</a>
+                      <ul>
+                        <li><a href="#" data-page_title="ta">தமிழ்</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
             </div>
           </div>
         </div>
@@ -84,10 +96,8 @@ $db = $database->openConnection();
     <!-- Navbar Start -->
     <div id="header" class="container justify-content-between">
       <div class="row">
-        <div class="col-lg-1 text-center">
-          <div class="m-10">
+        <div class="col-lg-2 text-center">
             <img class="prison_logo" src="images/logo/TamilNadu_Logo.svg.png" alt=""/>
-          </div>
         </div>
         <div class="col-lg-10 align-items-center">
           <div class="header-title">
@@ -114,27 +124,12 @@ $db = $database->openConnection();
                   $sql ="SELECT * FROM sub_menus where cate_code='".$row['menu_id']."' ORDER BY menu_id ASC ";
                   foreach ($db->query($sql) as $menus) { ?>
                  <?php if ($menus['cate_code']) { ?>
-                        <li><a href="#"><?php echo $menus['menu_name_en'];?></a></li>
+                        <li><a href="<?php echo $menus['page_url'];?>"><?php echo $menus['menu_name_en'];?></a></li>
                     <?php  }else {?>
                     <?php } } ?>
                 </ul>
             </li>
             <?php } ?>
-            <!-- <li class="dropdown">
-              <a class="nav-link scrollto" href="#about"
-                >About Us<i class="bi bi-chevron-down"></i>
-              </a>
-              <ul>
-                <li><a href="#">Aim & Brief</a></li>
-                <li><a href="#">History</a></li>
-                <li><a href="#">Category of Prisons</a></li>
-                <li><a href="#">Jurisdiction of Prisons</a></li>
-                <li><a href="#">Probation Branch</a></li>
-                <li><a href="#">Establishment</a></li>
-                <li><a href="#">Modernisation Drive</a></li>
-                <li><a href="#">Latest Development of Public Importance</a></li>
-              </ul>
-            </li> -->
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>

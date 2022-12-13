@@ -7,7 +7,9 @@ $(document).ready(function(e){
         data: { title:title },
         dataType: "json",
         success: function (response) {
-            location.reload();
+            if(response.code == 200){
+                location.reload();
+            }
         },
         });
 
