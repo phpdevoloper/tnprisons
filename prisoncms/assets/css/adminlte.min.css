@@ -48867,5 +48867,13 @@ a.text-muted:hover {
 .btn_position{
     float: right;
   }
+
+.tools .fa-edit {
+    color: #dc3545;
+}
   
+.tools{
+    text-align-last: center;
+}
+#example1 th {text-align: center;}
 /*# sourceMappingURL=adminlte.min.css.map */

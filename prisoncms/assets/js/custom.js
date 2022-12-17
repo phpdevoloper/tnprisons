@@ -1,4 +1,3 @@
-
 $(document).ready(function(e){
     var Toast = Swal.mixin({
         toast: true,

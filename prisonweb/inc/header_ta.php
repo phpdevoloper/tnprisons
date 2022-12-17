@@ -56,7 +56,7 @@ $db = $database->openConnection();
   <body>
     <div class="container-fluid bg-light p-0">
       <div class="row gx-0 d-none d-lg-flex">
-        <div class="col-lg-5 px-5 text-start">
+        <div class="col-lg-7 px-5 text-start">
           <div class="h-100 d-inline-flex align-items-center py-3 me-4">
             <small class="fa fa-map-marker-alt text-primary me-2"></small>
             <small>சிறைகள் மற்றும் சீர்திருத்தப்பணிகள் துறை</small>
@@ -66,7 +66,7 @@ $db = $database->openConnection();
             <small>Mon - Fri : 09.00 AM - 09.00 PM</small>
           </div> -->
         </div>
-        <div class="col-lg-5 px-5 text-end">
+        <div class="col-lg-4 px-5 text-end">
           <!-- <div class="h-100 d-inline-flex align-items-center py-3 me-4">
             <small class="bx bx-phone-call text-primary me-2"></small>
             <small>+012 345 6789</small>
@@ -108,7 +108,7 @@ $db = $database->openConnection();
           <div class="header-title">
             <a href="index.php">
               <h3>சிறைகள் மற்றும் சீர்திருத்தப்பணிகள் துறை</h3>
-              <h5>தமிழ்நாடு</h5>
+              <h5>தமிழ்நாடு அரசு</h5>
             </a>
           </div>
         </div>

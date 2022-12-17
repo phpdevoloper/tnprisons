@@ -117,21 +117,27 @@ $db = $database->openConnection();
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="assets/images/logo/TamilNadu_Logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Department of Prisons and Correctional Services</span>
+      <div class="row">
+        <div class="col-lg-2">
+          <img src="assets/images/logo/TamilNadu_Logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        </div>
+        <div class="col-lg-10">
+          <span class="brand-text font-weight-light">Department of Prisons <br> and Correctional Services</span>
+        </div>
+      </div>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <!-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
           <img src="assets/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">Alexander Pierce</a>
         </div>
-      </div>
+      </div> -->
 
       <!-- SidebarSearch Form -->
       <div class="form-inline">
@@ -169,50 +175,19 @@ $db = $database->openConnection();
               </p>
             </a>
           </li>
-          <li class="nav-item <?php echo basename($_SERVER['SCRIPT_FILENAME']) == "prisons.php"?'menu-open':'';?>">
-            <a href="#" class="nav-link <?php echo basename($_SERVER['SCRIPT_FILENAME']) == "prisons.php"?'active':'';?>">
-              <i class="nav-icon fas fa-copy"></i>
+          <?php $sql = "SELECT * FROM public.menus ORDER BY menu_id ASC"; 
+          foreach ($db->query($sql) as $row) {
+            // var_dump($row["page_url"]);
+          ?>
+          <li class="nav-item">
+            <a href="<?php echo $row["page_url"];?>" class="nav-link <?php echo basename($_SERVER['SCRIPT_FILENAME']) == "menu.php"?'active':''?>">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Prison in Tamil Nadu
-                <i class="fas fa-angle-left right"></i>
+                <?php echo $row['menu_name_en'];?>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-            <?php  
-                  $sql = "SELECT * FROM prison_types ORDER BY prison_type_id ASC";
-                  foreach ($db->query($sql) as $row) {
-              ?>
-              <li class="nav-item">
-                <a href="#" class="nav-link menu_a <?php echo basename($_SERVER['SCRIPT_FILENAME']) == "prisons.php" && $_SESSION["page_title"] == $row["prison_type"] ?'active':'';?>" data-prison_code = "<?php echo $row['prison_code'];?>" data-page_title = "<?php echo $row['prison_type'];?>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p><?php echo $row['prison_type']; ?></p>
-                </a>
-              </li>
-              <?php } ?>
-            </ul>
           </li>
-          <li class="nav-item <?php //echo !empty($_SESSION["page_title"])?'menu-open':'';?>">
-            <a href="#" class="nav-link <?php //echo !empty($_SESSION["page_title"])?'active':'';?>">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-              Reformation of  Prisoners
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-            <?php  
-                  $sql = "SELECT * FROM reformation ORDER BY reform_id ASC";
-                  foreach ($db->query($sql) as $row) {
-              ?>
-              <li class="nav-item">
-                <a href="#" class="nav-link menu_a <?php //echo !empty($_SESSION["page_title"]) && $_SESSION["page_title"] == $row["prison_type"] ?'active':'';?>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p><?php echo $row['reform_name']; ?></p>
-                </a>
-              </li>
-              <?php } ?>
-            </ul>
-          </li>
+          <?php } ?>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

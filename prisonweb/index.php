@@ -358,7 +358,7 @@ if(isset($_SESSION['lang']) && $_SESSION['lang'] !="") {
               </div>
             </div>
             <div class="col-lg-6">
-              <div><img src="images/prisons_collage_new.jpg" style="width: 100%;height: 454px;" alt=""></div>
+              <div><img src="images/prisons_collage_new.jpg" style="width: 100%;height: 454px; border:1px solid" alt=""></div>
             </div>
           </div>
         </div>
@@ -682,9 +682,9 @@ if(isset($_SESSION['lang']) && $_SESSION['lang'] !="") {
                 <a
                   href="portfolio-details.html"
                   class="details-link"
-                  title="More Details"
-                  ><i class="bx bx-link"></i
-                ></a>
+                  title="More Details">
+                  <i class="bx bx-link"></i>
+                </a>
               </div>
             </div>
 

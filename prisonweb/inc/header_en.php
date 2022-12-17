@@ -56,13 +56,13 @@ $db = $database->openConnection();
     <div class="top-bar">
       <div class="container-fluid bg-light p-0">
         <div class="row gx-0 d-none d-lg-flex">
-          <div class="col-lg-5 px-5 text-start">
+          <div class="col-lg-7 px-5 text-start">
             <div class="h-100 d-inline-flex align-items-center me-4">
               <small class="fa fa-map-marker-alt text-primary me-2"></small>
               <small>Department of Prisons and Correctional Services</small>
             </div>
           </div>
-          <div class="col-lg-5 px-5 text-end">
+          <div class="col-lg-4 px-5 text-end">
             <div class="h-100 d-inline-flex align-items-center">
               <a class="btn btn-sm-square text-primary me-1" href=""
                 ><i class="bx bxl-facebook"></i
@@ -113,14 +113,16 @@ $db = $database->openConnection();
       <div class="container">
         <nav id="navbar" class="navbar">
           <ul>
+            <li class="nav-link scrollto "><a href="index.php"><i class="bx bxs-home-alt-2"></a></i></li>
             <?php $sql ="SELECT * FROM public.menus ORDER BY menu_id ASC ";
             foreach ($db->query($sql) as $row) {
             ?>
             <li class="dropdown">
-              <a class="nav-link scrollto active" href="#hero"><span><?php echo $row['menu_name_en'];?>
+              <a class="nav-link scrollto" href="#hero"><span><?php echo $row['menu_name_en'];?>
               <!-- <i class="bi bi-chevron-down"></i> -->
               </span></a>
-              <ul><?php
+              <ul>
+                <?php
                   $sql ="SELECT * FROM sub_menus where cate_code='".$row['menu_id']."' ORDER BY menu_id ASC ";
                   foreach ($db->query($sql) as $menus) { ?>
                  <?php if ($menus['cate_code']) { ?>
