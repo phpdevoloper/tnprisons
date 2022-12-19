@@ -1,7 +1,5 @@
 <?php 
 include_once 'inc/DBConnection.php';
-$database = new DBConnection();
-$db = $database->openConnection();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +16,8 @@ $db = $database->openConnection();
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
   <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
   <!-- Toastr -->
   <link rel="stylesheet" href="plugins/toastr/toastr.min.css">
   <!-- iCheck -->
@@ -175,12 +175,14 @@ $db = $database->openConnection();
               </p>
             </a>
           </li>
-          <?php $sql = "SELECT * FROM public.menus ORDER BY menu_id ASC"; 
-          foreach ($db->query($sql) as $row) {
-            // var_dump($row["page_url"]);
+          <?php 
+          $sql = "SELECT * FROM menus ORDER BY menu_id ASC"; 
+          $res = pg_query($db,$sql);
+          $menu = pg_fetch_all($res);
+          foreach ($menu as $row) {
           ?>
           <li class="nav-item">
-            <a href="<?php echo $row["page_url"];?>" class="nav-link <?php echo basename($_SERVER['SCRIPT_FILENAME']) == "menu.php"?'active':''?>">
+            <a href="<?php echo $row["page_url"];?>" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 <?php echo $row['menu_name_en'];?>

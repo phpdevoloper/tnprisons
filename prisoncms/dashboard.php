@@ -1,7 +1,7 @@
   <?php 
   session_start();
   if (!empty($_SESSION)) {
-  include_once 'inc/DBConnection.php';
+  include('inc/DBConnection.php');
   include("inc/header1.php"); 
   ?>
   <!-- Content Wrapper. Contains page content -->
@@ -34,15 +34,15 @@
               $sql = "SELECT prisons_in_tamilnadu.*,prison_types.prison_type from prison_types 
               join prisons_in_tamilnadu on prisons_in_tamilnadu.prison_type = prison_types.prison_code
               where prison_types.prison_code = 'cp'";
-              $sth = $db->query($sql);
-              $res = $sth->fetch();
+              $sth = pg_query($db,$sql);
+              $res = pg_fetch_assoc($sth);
             ?>
             <div class="info-box menu_a" data-page_title = "<?php echo $res["prison_type"];?>" data-prison_code = "cp">
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text">Central Prisons</span>
                 <span class="info-box-number">
-                <?php echo $sth->rowCount(); ?>
+                <?php echo count($res); ?>
                 </span>
               </div>
               <!-- /.info-box-content -->
@@ -55,15 +55,15 @@
               $sql = "SELECT prisons_in_tamilnadu.*,prison_types.prison_type from prison_types 
               join prisons_in_tamilnadu on prisons_in_tamilnadu.prison_type = prison_types.prison_code
               where prison_types.prison_code = 'spw'";
-              $sth = $db->query($sql);
-              $result = $sth->fetch();
+              $sth = pg_query($db,$sql);
+              $result = pg_fetch_assoc($sth);
             ?>
             <div class="info-box mb-3 menu_a" data-page_title = "<?php echo $result["prison_type"];?>" data-prison_code ="spw">
               <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
 
               <div class="info-box-content">
                 <p class="info-box-text">SP for women</p>
-                <span class="info-box-number"> <?php echo $sth->rowCount(); ?></span>
+                <span class="info-box-number"> <?php echo count($result); ?></span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -79,15 +79,15 @@
               $sql = "SELECT prisons_in_tamilnadu.*,prison_types.prison_type from prison_types 
               join prisons_in_tamilnadu on prisons_in_tamilnadu.prison_type = prison_types.prison_code
               where prison_types.prison_code = 'bs'";
-              $sth = $db->query($sql);
-              $result = $sth->fetch();
+              $sth = pg_query($db,$sql);
+              $result = pg_fetch_assoc($sth);
             ?>
             <div class="info-box mb-3 menu_a" data-page_title = "<?php echo $result["prison_type"];?>" data-prison_code ="bs">
               <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Borstal School</span>
-                <span class="info-box-number"><?php echo $sth->rowCount(); ?></span>
+                <span class="info-box-number"><?php echo count($result); ?></span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -99,15 +99,15 @@
               $sql = "SELECT prisons_in_tamilnadu.*,prison_types.prison_type from prison_types 
               join prisons_in_tamilnadu on prisons_in_tamilnadu.prison_type = prison_types.prison_code
               where prison_types.prison_code = 'dj'";
-              $sth = $db->query($sql);
-              $result = $sth->fetch();
+              $sth = pg_query($db,$sql);
+              $result = pg_fetch_assoc($sth);
             ?>
             <div class="info-box mb-3 menu_a" data-page_title = "<?php echo $result["prison_type"];?>" data-prison_code ="dj">
               <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">District Jails</span>
-                <span class="info-box-number"><?php echo $sth->rowCount(); ?></span>
+                <span class="info-box-number"><?php echo count($result); ?></span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -118,8 +118,8 @@
               $sql = "SELECT prisons_in_tamilnadu.*,prison_types.prison_type from prison_types 
               join prisons_in_tamilnadu on prisons_in_tamilnadu.prison_type = prison_types.prison_code
               where prison_types.prison_code = 'sj'";
-              $sth = $db->query($sql);
-              $result = $sth->fetch();
+              $sth = pg_query($db,$sql);
+              $result = pg_fetch_assoc($sth);
             ?>
             <div class="info-box menu_a" data-page_title = "<?php echo $result["prison_type"];?>" data-prison_code ="sj">
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
@@ -127,7 +127,7 @@
               <div class="info-box-content">
                 <span class="info-box-text">Sub Jails</span>
                 <span class="info-box-number">
-                <?php echo $sth->rowCount(); ?>
+                <?php echo count($result);?>
                 </span>
               </div>
               <!-- /.info-box-content -->
@@ -139,8 +139,8 @@
               $sql = "SELECT prisons_in_tamilnadu.*,prison_types.prison_type from prison_types 
               join prisons_in_tamilnadu on prisons_in_tamilnadu.prison_type = prison_types.prison_code
               where prison_types.prison_code = 'ssj'";
-              $sth = $db->query($sql);
-              $result = $sth->fetch();
+              $sth = pg_query($db,$sql);
+              $result = pg_fetch_assoc($sth);
             ?>
             <div class="info-box menu_a" data-page_title = "<?php echo $result["prison_type"];?>" data-prison_code ="ssj">
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
@@ -148,7 +148,7 @@
               <div class="info-box-content">
                 <span class="info-box-text">SP Sub Jails</span>
                 <span class="info-box-number">
-                <?php echo $sth->rowCount(); ?>
+                <?php echo count($result); ?>
                 </span>
               </div>
               <!-- /.info-box-content -->
@@ -160,15 +160,15 @@
               $sql = "SELECT prisons_in_tamilnadu.*,prison_types.prison_type from prison_types 
               join prisons_in_tamilnadu on prisons_in_tamilnadu.prison_type = prison_types.prison_code
               where prison_types.prison_code = 'oaj'";
-              $sth = $db->query($sql);
-              $result = $sth->fetch();
+              $sth = pg_query($db,$sql);
+              $result = pg_fetch_assoc($sth);
             ?>
             <div class="info-box menu_a" data-page_title = "<?php echo $result["prison_type"];?>" data-prison_code ="oaj">
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text">Open Air Prisons</span>
                 <span class="info-box-number">
-                <?php echo $sth->rowCount(); ?>
+                <?php echo count($result); ?>
                 </span>
               </div>
               <!-- /.info-box-content -->

@@ -3,8 +3,6 @@ session_start();
 if (isset($_SESSION)) {
 include("inc/header1.php");
 include_once 'inc/DBConnection.php';
-$database = new DBConnection();
-$db = $database->openConnection();
 ?>
 
 <div class="content-wrapper">
@@ -56,7 +54,7 @@ $db = $database->openConnection();
                     try
                     {
                         $sql = "SELECT * FROM public.menus ORDER BY menu_id ASC";
-                        foreach ($db->query($sql) as $row) {  var_dump($row);?>
+                        foreach (pg_query($db,$sql) as $row) {  ?>
                           <option value="<?php echo $row["menu_id"]; ?>"><?php echo $row["menu_name_en"]; ?></option>
                     <?php   }
                     }
@@ -94,7 +92,7 @@ $db = $database->openConnection();
                     {
                         $i = 1;
                         $sql = "SELECT * FROM public.menus ORDER BY menu_id ASC";
-                        foreach ($db->query($sql) as $row) { ?>
+                        foreach (pg_query($db,$sql) as $row) { ?>
                           <tr>
                           <th><?php echo $i; ?></th>
                           <th><?php echo $row["menu_name_en"]; ?></th>
@@ -142,9 +140,9 @@ $db = $database->openConnection();
                       <label for="exampleInputEmail1">Prison District</label>
                       <select class="form-control" name="prison_district" id="prison_district">
                           <option value="">Please select district</option>
-                              <?php $sth = $db->prepare("SELECT * FROM districts_tn_list ORDER BY dis_id ASC ");
-                                $sth->execute();
-                                $result = $sth->fetchAll();
+                              <?php $sth = "SELECT * FROM districts_tn_list ORDER BY dis_id ASC ";
+                                $data = pg_query($db,$sth);
+                                $result = pg_fetch_all($data);
                                 foreach ($result as $row) {
                               ?>
                           <option value="<?php echo $row['district_short_code']?>"><?php echo $row['district_name']?></option>
@@ -155,10 +153,10 @@ $db = $database->openConnection();
                     <label for="exampleInputEmail1">Prison Type</label>
                     <select class="form-control" name="prison_type" id="Prison_type">
                         <option value="">Please select prison type</option>
-                        <?php $sth = $db->prepare("SELECT * FROM prison_types ORDER BY prison_type_id ASC");
-                              $sth->execute();
-                              $result = $sth->fetchAll();
-                              foreach ($result as $row) {
+                        <?php $sth = "SELECT * FROM prison_types ORDER BY prison_type_id ASC";
+                              $data = pg_query($db,$sth);
+                              $res = pg_fetch_all($data);
+                              foreach ($res as $row) {
                             ?>
                         <option value="<?php echo $row['prison_code']?>"><?php echo $row['prison_type']?></option>
                         <?php  } ?>

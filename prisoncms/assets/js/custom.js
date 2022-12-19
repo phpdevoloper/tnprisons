@@ -1,9 +1,9 @@
-$(document).ready(function(e){
+$(document).ready(function(){
     var Toast = Swal.mixin({
         toast: true,
         position: 'top-end',
         showConfirmButton: false,
-        timer: 4000
+        timer: 2000
       });
 
       $(".logout").on("click", function () {
@@ -135,6 +135,45 @@ $(document).ready(function(e){
                         
                     })
                     location.reload();
+                }
+            },
+        });
+    });
+
+    // GET Menu name 
+    $(".editMenu").on("click",function(e){
+        var menu_id = $(this).attr("data-menu_id");
+        var menu_name_en = $(this).attr("data-menu_name_en");
+        $("#menu_id").val(menu_id);
+        $("#menu_name_en").val(menu_name_en);      
+    });
+
+
+    $("#edit_Menu_en").submit(function(e){
+        e.preventDefault();
+        var formData = new FormData(this);
+        // console.log(formData);
+        $.ajax({
+            method: "POST",
+            url: "MenuAjax.php",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                var data = JSON.parse(response);
+                if (data.code == 200) {
+                    Toast.fire({
+                        icon: 'success',
+                        title: data.msg,
+                        
+                    });
+                    window.setTimeout(function(){location.reload(true)},2000);
+                } else {
+                    Toast.fire({
+                        icon: 'error',
+                        title: data.msg,
+                        
+                    });
                 }
             },
         });
