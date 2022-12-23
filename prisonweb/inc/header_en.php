@@ -53,12 +53,52 @@ $db = $database->openConnection();
   </head>
 
   <body>
-    <div class="top-bar">
-      <div class="container-fluid bg-light p-0">
-        <div class="row gx-0 d-none d-lg-flex">
+    <div id="top-bar" class="top-bar">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="push-right">
+              <div id="accessibility">
+                <ul id="accessibilityMenu">
+                  <li>
+                      <a href="#SkipContent" class="skipContent" aria-label="Skip to main content" title="Skip to main content">
+                          <span class="m-hide">Skip to main content</span>
+                          <span class="icon-skip-to-main m-show"></span>
+                      </a>
+                  </li>
+                  <li class="social-media">
+                    <a href="javascript:void(0);" class="social-group-icon" title="Social Media Links" aria-label="Social Media Links" role="button" data-toggle="dropdown">
+                        <img class="show-con" src="https://governoruk.gov.in/wp-content/themes/sdo-theme/images/social_media.svg" title="Social Icon" alt="Social Icon">
+                        <span class="hide">Social Media Links</span>
+                    </a>
+                    <ul class="socialIcons">
+                      <li><a href="https://www.facebook.com/LtGenGurmitSingh" target="_blank" aria-label="Facebook | External site that opens in a new window" onclick="return confirm('You are being redirected to an external website. Please note that RAJBHAWAN UTTARAKHAND cannot be held responsible for external websites content &amp; privacy policies.');" title="https://www.facebook.com/LtGenGurmitSingh - External site that opens in a new window"><img src="https://governoruk.gov.in/wp-content/themes/sdo-theme/images/facebook_icon.svg" title="Facebook | External site that opens in a new window" alt="Facebook, External Link that opens in a new window"></a></li>
+                      <li><a href="https://twitter.com/LtGenGurmit?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank" aria-label="Twitter | External site that opens in a new window" onclick="return confirm('You are being redirected to an external website. Please note that RAJBHAWAN UTTARAKHAND cannot be held responsible for external websites content &amp; privacy policies.');" title="https://twitter.com/LtGenGurmit?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor - External site that opens in a new window"><img src="https://governoruk.gov.in/wp-content/themes/sdo-theme/images/twitter_icon.svg" title="Twitter | External site that opens in a new window" alt="Twitter, External Link that opens in a new window"></a></li>
+                      <li><a href="https://www.instagram.com/ltgengurmitsingh" target="_blank" aria-label="Instagram | External site that opens in a new window" onclick="return confirm('You are being redirected to an external website. Please note that RAJBHAWAN UTTARAKHAND cannot be held responsible for external websites content &amp; privacy policies.');" title="https://www.instagram.com/ltgengurmitsingh - External site that opens in a new window"><img src="https://governoruk.gov.in/wp-content/themes/sdo-theme/images/instagram_icon.svg" title="Instagram | External site that opens in a new window" alt="Instagram, External Link that opens in a new window"></a></li>
+                      <li><a href="https://www.youtube.com/channel/UCCx7DD2c77WsbfXO5HHxVsA" target="_blank" aria-label="Youtube | External site that opens in a new window" onclick="return confirm('You are being redirected to an external website. Please note that RAJBHAWAN UTTARAKHAND cannot be held responsible for external websites content &amp; privacy policies.');" title="https://www.youtube.com/channel/UCCx7DD2c77WsbfXO5HHxVsA - External site that opens in a new window"><img src="https://governoruk.gov.in/wp-content/themes/sdo-theme/images/youtube_icon.svg" title="Youtube | External site that opens in a new window" alt="youtube, External Link that opens in a new window"></a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="push-left">
+              <div class="govBranding">
+                <ul>
+                    <li>
+                        <a lang="hi" href="https://uk.gov.in/" onclick="return confirm('You are being redirected to an external website. Please note that RAJBHAWAN UTTARAKHAND cannot be held responsible for external websites content &amp; privacy policies.');" aria-label="उत्तराखंड सरकार - External site that opens in a new window" title="उत्तराखंड सरकार - External site that opens in a new window" target="_blank">
+                            उत्तराखंड सरकार                                     </a></li>
+                    <li>
+                        <a lang="en" href="https://uk.gov.in/" onclick="return confirm('You are being redirected to an external website. Please note that RAJBHAWAN UTTARAKHAND cannot be held responsible for external websites content &amp; privacy policies.');" aria-label="Government of Uttarakhand - External site that opens in a new window" title="Government of Uttarakhand - External site that opens in a new window" target="_blank">
+                            Government of Uttarakhand                                    </a>
+                    </li>
+                </ul>
+              </div>        
+            </div>
+          </div>
+        </div>
+        <!-- <div class="row gx-0 d-none d-lg-flex">
           <div class="col-lg-7 px-5 text-start">
             <div class="h-100 d-inline-flex align-items-center me-4">
-              <small class="fa fa-map-marker-alt text-primary me-2"></small>
               <small>Department of Prisons and Correctional Services</small>
             </div>
           </div>
@@ -90,7 +130,7 @@ $db = $database->openConnection();
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <!-- Navbar Start -->

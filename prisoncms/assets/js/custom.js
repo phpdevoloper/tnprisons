@@ -149,10 +149,10 @@ $(document).ready(function(){
     });
 
 
-    $("#edit_Menu_en").submit(function(e){
+    $(".edit_Menu").submit(function(e){
         e.preventDefault();
         var formData = new FormData(this);
-        // console.log(formData);
+        console.log('sgdsgfdg');
         $.ajax({
             method: "POST",
             url: "MenuAjax.php",
@@ -177,6 +177,128 @@ $(document).ready(function(){
                 }
             },
         });
+    });
+
+    // GET Menu name tamil
+    $(".editMenu").on("click",function(e){
+        var menu_id = $(this).attr("data-menu_id");
+        var menu_name_ta = $(this).attr("data-menu_name_en");
+        $("#Menu_id").val(menu_id);
+        $("#menu_name_ta").val(menu_name_ta);      
+    });
+
+    
+
+
+    // GET page content
+    $(".edit_page").on("click",function(e){
+        var menu_id = $(this).attr("data-menu_id");
+        console.log(menu_id);
+        var page_name_en = $(this).attr("data-menu_name_en");
+      
+        $("#page_id").val(menu_id);
+        $("#page_title").text(page_name_en+'(English)'); 
+        $.ajax({
+            method: "POST",
+            url: "get_pageContentAjax.php",
+            data: { 
+                page_id : menu_id,
+                con_type : 'english',
+            },
+            dataType:"json",
+            success: function (response) {
+                console.log(response);
+                $("#summernote").summernote('code', response);
+                
+            },
+        });
+    });
+
+    $(".edit_page_ta").on("click",function(e){
+        var menu_id = $(this).attr("data-menu_id");
+        var page_name_ta = $(this).attr("data-menu_name_ta");
+
+      
+        $("#page_id_ta").val(menu_id);
+        $("#page_title_ta").text(page_name_ta+'(Tamil)'); 
+        $.ajax({
+            method: "POST",
+            url: "get_pageContentAjax.php",
+            data: { 
+                page_id : menu_id,
+                con_type : 'tamil',
+            },
+            dataType:"json",
+            success: function (response) {
+                console.log('zsfsd');
+                $("#summernote_ta").summernote('code', response);
+                
+            },
+        });
+
+    });
+
+    $(".update_content").on("click", function(e) {
+        var page_id = $("#page_id").val();
+        var page_content = $("#summernote").summernote('code');
+        $.ajax({
+            method: "POST",
+            url: "en_pageContentAjax.php",
+            data: { 
+                page_id : page_id,
+                page_content : page_content 
+            },
+            dataType:"json",
+            success: function (response) {
+                if (response.code == 200) {
+                    Toast.fire({
+                        icon: 'success',
+                        title: response.msg,
+                        
+                    });
+                    window.setTimeout(function(){location.reload(true)},2000);
+                } else {
+                    Toast.fire({
+                        icon: 'error',
+                        title: response.msg,
+                        
+                    });
+                }
+            },
+        });
+
+    });
+
+    $(".update_content_ta").on("click", function(e) {
+        var page_id = $("#page_id_ta").val();
+        var page_content = $("#summernote_ta").summernote('code');
+        $.ajax({
+            method: "POST",
+            url: "ta_pageContentAjax.php",
+            data: { 
+                page_id_ta : page_id,
+                page_content : page_content 
+            },
+            dataType:"json",
+            success: function (response) {
+                console.log(response.msg);
+                if (response.code == 200) {
+                    Toast.fire({
+                        icon: 'success',
+                        title: response.msg,
+                        
+                    });
+                    window.setTimeout(function(){location.reload(true)},2000);
+                } else {
+                    Toast.fire({
+                        icon: 'error',
+                        title: response.msg,
+                        
+                    });
+                }
+            },
+        });
+
     });
 
 });

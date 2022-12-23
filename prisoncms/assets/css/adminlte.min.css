@@ -13419,12 +13419,12 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 }
 
 .brand-link .brand-image {
-    float: left;
+    /* float: left; */
     line-height: .8;
     margin-left: .8rem;
     margin-right: .5rem;
     margin-top: -3px;
-    max-height: 33px;
+    max-height: 65px;
     width: auto
 }
 
@@ -48875,5 +48875,4 @@ a.text-muted:hover {
 .tools{
     text-align-last: center;
 }
-#example1 th {text-align: center;}
 /*# sourceMappingURL=adminlte.min.css.map */

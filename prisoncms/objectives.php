@@ -3,8 +3,6 @@ session_start();
 if (isset($_SESSION)) {
 include("inc/header1.php");
 include_once 'inc/DBConnection.php';
-$database = new DBConnection();
-$db = $database->openConnection();
 ?>
 
 <div class="content-wrapper">
@@ -33,7 +31,10 @@ $db = $database->openConnection();
                     <textarea id="summernote">
                     Place <em>some</em> <u>text</u> <strong>here</strong>
                     </textarea>
-                    <div><button type="submit" class="btn btn-primary">Update</button></div>
+                    <div class="form-group col-lg-6">
+                      <input type="hidden" class="form-control" name="menu_id" id="menu_id" placeholder="Enter the name">
+                  </div>
+                    <div><button type="submit" class="btn btn-primary updateAbout">Update</button></div>
                 </div>
                 <div class="card-footer">
                 </div>
@@ -43,80 +44,18 @@ $db = $database->openConnection();
     </section>
     <!-- /.content -->
   </div>
-  <div class="modal fade" id="modal-xl">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header">
-            <h4 class="modal-title">Add New Prison</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <form id="addPrison_form">
-          <div class="modal-body">
-              <div class="row">
-                  <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Prison Name</label>
-                      <input type="text" class="form-control" name="prison_name" id="prison_name" placeholder="Enter the name">
-                  </div>
-                  <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Prison Location</label>
-                      <input type="text" class="form-control" name="prison_location" id="prison_location" placeholder="Enter the location">
-                  </div>
-                  <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Prison District</label>
-                      <select class="form-control" name="prison_district" id="prison_district">
-                          <option value="">Please select district</option>
-                              <?php $sth = $db->prepare("SELECT * FROM districts_tn_list ORDER BY dis_id ASC ");
-                                $sth->execute();
-                                $result = $sth->fetchAll();
-                                foreach ($result as $row) {
-                              ?>
-                          <option value="<?php echo $row['district_short_code']?>"><?php echo $row['district_name']?></option>
-                          <?php  } ?>
-                      </select>
-                  </div>
-                  <div class="form-group col-lg-6">
-                    <label for="exampleInputEmail1">Prison Type</label>
-                    <select class="form-control" name="prison_type" id="Prison_type">
-                        <option value="">Please select prison type</option>
-                        <?php $sth = $db->prepare("SELECT * FROM prison_types ORDER BY prison_type_id ASC");
-                              $sth->execute();
-                              $result = $sth->fetchAll();
-                              foreach ($result as $row) {
-                            ?>
-                        <option value="<?php echo $row['prison_code']?>"><?php echo $row['prison_type']?></option>
-                        <?php  } ?>
-                    </select>
-                  </div>
-                  <div class="form-group col-lg-6">
-                      <label for="exampleInputEmail1">Prison Jurisdiction</label>
-                      <input type="text" class="form-control" name="prison_juri" id="prison_juri" placeholder="Enter the jusrisdiction">
-                  </div>
-                  <div class="form-group col-lg-6">
-                    <label for="exampleInputEmail1">Prison Address</label>
-                    <textarea class="form-control" name="prison_address" id="prison_address" cols="30" rows="3" placeholder="Enter the address"></textarea>
-                  </div>
-              </div>
-          </div>
-          <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Save changes</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-    <!-- /.modal -->
-    <?php include("inc/footer.php");?>
+<!-- /.modal -->
+<?php include("inc/footer.php");?>
 <script>
   $(function () {
     // Summernote
-    $('#summernote').summernote(
-    )
-  })
+    $('#summernote').summernote({
+      height: 300,
+      focus: true
+    });
+  });
 </script>
-<?php } else{
+<?php } else {
   header("Location:index.php");
 }
 ?>

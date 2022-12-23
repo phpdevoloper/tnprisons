@@ -42,7 +42,8 @@ include_once 'inc/DBConnection.php';
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="assets/images/logo/TamilNadu_Logo.png" alt="AdminLTELogo" height="60" width="60">
+    <img src="assets/images/logo/TamilNadu_Logo.png" alt="AdminLTELogo" height="60" width="60">
+    <p>Department of Prisons and Correctional Services</p>
   </div>
 
   <!-- Navbar -->
@@ -52,18 +53,18 @@ include_once 'inc/DBConnection.php';
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+       <li class="nav-item d-none d-sm-inline-block">
+        <a href="index3.html" class="nav-link">Department of Prisons and Correctional Services</a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
+      <!--<li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
-      </li>
+      </li> -->
     </ul>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" data-widget="navbar-search" href="#" role="button">
           <i class="fas fa-search"></i>
         </a>
@@ -82,18 +83,18 @@ include_once 'inc/DBConnection.php';
             </div>
           </form>
         </div>
-      </li>
+      </li> -->
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
-      </li>
-      <li class="nav-item">
+      </li> -->
+      <!-- <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
           <i class="fas fa-th-large"></i>
         </a>
-      </li>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" data-toggle="dropdown" href="#">
         <i class="fas fa-user"></i>
@@ -117,12 +118,9 @@ include_once 'inc/DBConnection.php';
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <div class="row">
-        <div class="col-lg-2">
-          <img src="assets/images/logo/TamilNadu_Logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        </div>
-        <div class="col-lg-10">
-          <span class="brand-text font-weight-light">Department of Prisons <br> and Correctional Services</span>
+      <div class="row text-center">
+        <div class="col-lg-12">
+          <img src="assets/images/logo/TamilNadu_Logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3">
         </div>
       </div>
     </a>
@@ -182,7 +180,7 @@ include_once 'inc/DBConnection.php';
           foreach ($menu as $row) {
           ?>
           <li class="nav-item">
-            <a href="<?php echo $row["page_url"];?>" class="nav-link">
+            <a href="<?php echo !empty($row["page_url"]) ? $row["page_url"] : '#';?>" class="nav-link <?php echo basename($_SERVER['SCRIPT_FILENAME']) == $row['page_url'] ? 'active':''?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 <?php echo $row['menu_name_en'];?>
