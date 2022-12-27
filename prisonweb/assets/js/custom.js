@@ -1,5 +1,5 @@
 $(document).ready(function(e){
-    $("#navbar1 li a").on("click",function(e){
+    $(".lang-item a").on("click",function(e){
         var title = $(this).attr("data-page_title");
         $.ajax({
         method: "POST",

@@ -54,63 +54,105 @@ $db = $database->openConnection();
   </head>
 
   <body>
-    <div class="container-fluid bg-light p-0">
-      <div class="row gx-0 d-none d-lg-flex">
-        <div class="col-lg-7 px-5 text-start">
-          <div class="h-100 d-inline-flex align-items-center py-3 me-4">
-            <small class="fa fa-map-marker-alt text-primary me-2"></small>
-            <small>சிறைகள் மற்றும் சீர்திருத்தப்பணிகள் துறை</small>
-          </div>
-          <!-- <div class="h-100 d-inline-flex align-items-center py-3">
-            <small class="far fa-clock text-primary me-2"></small>
-            <small>Mon - Fri : 09.00 AM - 09.00 PM</small>
-          </div> -->
-        </div>
-        <div class="col-lg-4 px-5 text-end">
-          <!-- <div class="h-100 d-inline-flex align-items-center py-3 me-4">
-            <small class="bx bx-phone-call text-primary me-2"></small>
-            <small>+012 345 6789</small>
-          </div> -->
-          <div class="h-100 d-inline-flex align-items-center">
-            <a class="btn btn-sm-square text-primary me-1" href=""
-              ><i class="bx bxl-facebook"></i
-            ></a>
-            <a class="btn btn-sm-square text-primary me-1" href=""
-              ><i class="bx bxl-twitter"></i
-            ></a>
-            <a class="btn btn-sm-square text-primary me-1" href=""
-              ><i class="bx bxl-linkedin"></i
-            ></a>
-            <a class="btn btn-sm-square text-primary me-0" href=""
-              ><i class="bx bxl-instagram"></i
-            ></a>
-            <nav id="navbar1" class="navbar">
-              <ul>
-                <li class="dropdown">
-                  <a class="nav-link" href="#">தமிழ்</a>
-                  <ul>
-                    <li><a href="#" data-page_title="en">ENG</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </nav>
+    <div id="top-bar" class="top-bar">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="push-right">
+              <div id="accessibility">
+                <ul id="accessibilityMenu">
+                  <li>
+                      <a href="#SkipContent" class="skipContent" aria-label="உள்ளடக்கத்திற்குச் செல்ல" title="உள்ளடக்கத்திற்குச் செல்ல">
+                          <span class="m-hide">உள்ளடக்கத்திற்குச் செல்ல</span>
+                          <span class="icon-skip-to-main m-show"></span>
+                      </a>
+                  </li>
+                  <li class="social-media">
+                    <a href="javascript:void(0);" class="social-group-icon" title="Social Media Links" aria-label="Social Media Links" role="button" data-toggle="dropdown">
+                        <img class="show-con" src="https://governoruk.gov.in/wp-content/themes/sdo-theme/images/social_media.svg" title="Social Icon" alt="Social Icon">
+                        <span class="hide">Social Media Links</span>
+                    </a>
+                    <ul class="socialIcons">
+                      <li><a href="https://www.facebook.com/LtGenGurmitSingh" target="_blank" aria-label="Facebook | External site that opens in a new window" onclick="return confirm('You are being redirected to an external website. Please note that RAJBHAWAN UTTARAKHAND cannot be held responsible for external websites content &amp; privacy policies.');" title="https://www.facebook.com/LtGenGurmitSingh - External site that opens in a new window"><img src="https://governoruk.gov.in/wp-content/themes/sdo-theme/images/facebook_icon.svg" title="Facebook | External site that opens in a new window" alt="Facebook, External Link that opens in a new window"></a></li>
+                      <li><a href="https://twitter.com/LtGenGurmit?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank" aria-label="Twitter | External site that opens in a new window" onclick="return confirm('You are being redirected to an external website. Please note that RAJBHAWAN UTTARAKHAND cannot be held responsible for external websites content &amp; privacy policies.');" title="https://twitter.com/LtGenGurmit?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor - External site that opens in a new window"><img src="https://governoruk.gov.in/wp-content/themes/sdo-theme/images/twitter_icon.svg" title="Twitter | External site that opens in a new window" alt="Twitter, External Link that opens in a new window"></a></li>
+                      <li><a href="https://www.instagram.com/ltgengurmitsingh" target="_blank" aria-label="Instagram | External site that opens in a new window" onclick="return confirm('You are being redirected to an external website. Please note that RAJBHAWAN UTTARAKHAND cannot be held responsible for external websites content &amp; privacy policies.');" title="https://www.instagram.com/ltgengurmitsingh - External site that opens in a new window"><img src="https://governoruk.gov.in/wp-content/themes/sdo-theme/images/instagram_icon.svg" title="Instagram | External site that opens in a new window" alt="Instagram, External Link that opens in a new window"></a></li>
+                      <li><a href="https://www.youtube.com/channel/UCCx7DD2c77WsbfXO5HHxVsA" target="_blank" aria-label="Youtube | External site that opens in a new window" onclick="return confirm('You are being redirected to an external website. Please note that RAJBHAWAN UTTARAKHAND cannot be held responsible for external websites content &amp; privacy policies.');" title="https://www.youtube.com/channel/UCCx7DD2c77WsbfXO5HHxVsA - External site that opens in a new window"><img src="https://governoruk.gov.in/wp-content/themes/sdo-theme/images/youtube_icon.svg" title="Youtube | External site that opens in a new window" alt="youtube, External Link that opens in a new window"></a></li>
+                    </ul>
+                  </li>
+                  <li class="top-sitemap mFocus">
+                    <a href="https://governoruk.gov.in/sitemap/" aria-label="Sitemap" title="Sitemap" class="mFocus">
+                    <img class="show-con" src="https://governoruk.gov.in/wp-content/themes/sdo-theme/images/sitemap_icon.svg" title="Sitemap Icon" alt="Sitemap Icon">
+                    <span class="hide">Sitemap</span></a>
+                  </li>
+                  <li class="">
+                    <a href="javascript:void(0);" title="Accessibility Links" aria-label="Accessibility Links" class="accessible-icon mFocus" role="button" data-toggle="dropdown"><span class="tcon">Accessibility Links</span>
+                        <img class="show-con" src="https://governoruk.gov.in/wp-content/themes/sdo-theme/images/accessibility_icon.svg" title="Accessibility Icon" alt="Accessibility Icon">
+                    </a>
+                    <ul class="accessiblelinks textSizing visible" aria-label="Font size and Contrast controls">
+                        <li class="fontSizeEvent"><a data-selected-text="selected" data-event-type="increase" href="javascript:void(0);" data-label="Font Size Increase" title="Font Size Increase" aria-label="Font Size Increase"><span aria-hidden="true">A+</span> <span class="tcon">Font Size Increase</span></a></li>
+                        <li class="fontSizeEvent"><a data-selected-text="selected" data-event-type="normal" href="javascript:void(0);" data-label="Normal Font" title="Normal Font - selected" aria-label="Normal Font - selected" class="link-selected"><span aria-hidden="true">A</span> <span class="tcon">Normal Font</span></a></li>
+                        <li class="fontSizeEvent"><a data-selected-text="selected" data-event-type="decrease" href="javascript:void(0);" data-label="Font Size Decrease" title="Font Size Decrease" aria-label="Font Size Decrease"><span aria-hidden="true">A-</span> <span class="tcon">Font Size Decrease</span></a></li>
+                        <li class="highContrast dark tog-con">
+                            <a href="javascript:void(0);" title="High Contrast" aria-label="High Contrast"><span aria-hidden="true">A</span> <small class="tcon">High Contrast</small></a>
+                        </li>
+                        <li class="highContrast light">
+                            <a class="" href="javascript:void(0);" title="Normal Contrast - Selected" aria-label="Normal Contrast - Selected"><span aria-hidden="true">A</span> <small class="tcon">Normal Contrast</small></a>
+                        </li>
+                    </ul>
+                  </li>
+                  <li class="languageCont" aria-label="Change Language">
+                    <a href="javascript:void(0);" class="language link-selected" aria-label="தமிழ் - Selected" title="தமிழ் - Selected" role="button" data-toggle="dropdown">தமிழ்</a>
+                    <ul class="socialIcons">
+                      <li class="lang-item lang-item-55 lang-item-hi">
+                        <a href="#" aria-label="English" title="English" data-page_title="en">English</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="push-left">
+              <div class="govBranding">
+                <ul>
+                    <!-- <li>
+                        <a lang="hi" href="https://uk.gov.in/" onclick="return confirm('You are being redirected to an external website. Please note that RAJBHAWAN UTTARAKHAND cannot be held responsible for external websites content &amp; privacy policies.');" aria-label="उत्तराखंड सरकार - External site that opens in a new window" title="उत्तराखंड सरकार - External site that opens in a new window" target="_blank">
+                            Prisons                                     </a>
+                    </li> -->
+                    <li>
+                        <a lang="en" href="#" title="தமிழ்நாடு அரசு - External site that opens in a new window" target="_blank">
+                          தமிழ்நாடு அரசு                                   
+                        </a>
+                    </li>
+                </ul>
+              </div>        
+            </div>
           </div>
         </div>
       </div>
     </div>
     <!-- Navbar Start -->
-    <div id="header" class="container justify-content-between">
-      <div class="row">
-        <div class="col-lg-2 text-center">
-            <img class="prison_logo" src="images/logo/TamilNadu_Logo.svg.png" alt=""/>
-        </div>
-        <div class="col-lg-10 align-items-center">
-          <div class="header-title">
-            <a href="index.php">
-              <h3>சிறைகள் மற்றும் சீர்திருத்தப்பணிகள் துறை</h3>
-              <h5>தமிழ்நாடு அரசு</h5>
-            </a>
+    <div id="header" class="header-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-7">
+            <div class="logo">
+              <a href="https://governoruk.gov.in/" title="Go to home" class="site_logo" rel="home">
+                <img id="logo" class="emblem" src="images/logo/TamilNadu_Logo.svg.png" alt="State Emblem of India">
+                  <div class="logo_text">
+                    <h1 class="h1-logo">சிறைகள் மற்றும் சீர்திருத்தப்பணிகள் துறை</h1>
+                    <h6>தமிழ்நாடு அரசு</h6>
+                  </div>
+                </a>
+            </div>
           </div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-5">
+            <div class="header-right hidden-xs push-right">
+              <!-- <a aria-label="Digital India Image - External site that opens in a new window" href="https://www.digitalindia.gov.in/" target="_blank" title="Digital India Image" onclick="return confirm('You are being redirected to an external website. Please note that RAJBHAWAN UTTARAKHAND cannot be held responsible for external websites content &amp; privacy policies.');">
+                <img class="sw-logo" src="https://cdnbbsr.s3waas.gov.in/s3978d76676f5e7918f81d28e7d092ca0d/uploads/2019/03/2019031587.png" alt="Digital India">
+              </a> -->
+            </div>
+            <a class="menuToggle" href="javascript:void(0);"> <span class="icon-menu" aria-hidden="true"></span> <span class="menu-text">Menu Toggle</span> </a>
+        </div>
         </div>
       </div>
     </div>
@@ -122,8 +164,8 @@ $db = $database->openConnection();
             foreach ($db->query($sql) as $row) {
             ?>
             <li class="dropdown">
-              <a class="nav-link scrollto active" href="#hero"><span><?php echo $row['menu_name_ta'];?>
-              <!-- <i class="bi bi-chevron-down"></i> -->
+              <a class="nav-link scrollto"><span><?php echo $row['menu_name_ta'];?>
+              <i class="bi bi-chevron-down"></i>
               </span></a>
               <ul><?php
                   $sql ="SELECT * FROM sub_menus where cate_code='".$row['menu_id']."' ORDER BY menu_id ASC ";

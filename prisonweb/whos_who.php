@@ -9,15 +9,15 @@
                   <div id="breadcrumb" class="push-left" role="navigation" aria-label="breadcrumb">
                      <ul class="breadcrumbs">
                         <li><a href="#" class="home"><span>Home</span></a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li class="current">Objectives</li>
+                        <li><a href="#">Prison Administration</a></li>
+                        <li class="current">Who's Who</li>
                      </ul>
                   </div>
                </div>
             </div>
             <div class="page-head">
                 <div class="text-center section-title">
-                    <p>Objectives</p>
+                    <p>Who's Who</p>
                 </div>
             <div>
                 <p>Prisons serve the public by keeping in safe custody those committed by the courts and treating them with humanity and helping them to lead a useful life in society as a law abiding citizen after their release from the Prison. The theory of Reformation and Rehabilitation is followed in the Prisons of this State.</p>

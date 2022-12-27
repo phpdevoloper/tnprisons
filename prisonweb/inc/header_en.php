@@ -78,64 +78,83 @@ $db = $database->openConnection();
                       <li><a href="https://www.youtube.com/channel/UCCx7DD2c77WsbfXO5HHxVsA" target="_blank" aria-label="Youtube | External site that opens in a new window" onclick="return confirm('You are being redirected to an external website. Please note that RAJBHAWAN UTTARAKHAND cannot be held responsible for external websites content &amp; privacy policies.');" title="https://www.youtube.com/channel/UCCx7DD2c77WsbfXO5HHxVsA - External site that opens in a new window"><img src="https://governoruk.gov.in/wp-content/themes/sdo-theme/images/youtube_icon.svg" title="Youtube | External site that opens in a new window" alt="youtube, External Link that opens in a new window"></a></li>
                     </ul>
                   </li>
+                  <li class="top-sitemap mFocus">
+                    <a href="https://governoruk.gov.in/sitemap/" aria-label="Sitemap" title="Sitemap" class="mFocus">
+                    <img class="show-con" src="https://governoruk.gov.in/wp-content/themes/sdo-theme/images/sitemap_icon.svg" title="Sitemap Icon" alt="Sitemap Icon">
+                    <span class="hide">Sitemap</span></a>
+                  </li>
+                  <li class="">
+                    <a href="javascript:void(0);" title="Accessibility Links" aria-label="Accessibility Links" class="accessible-icon mFocus" role="button" data-toggle="dropdown"><span class="tcon">Accessibility Links</span>
+                        <img class="show-con" src="https://governoruk.gov.in/wp-content/themes/sdo-theme/images/accessibility_icon.svg" title="Accessibility Icon" alt="Accessibility Icon">
+                    </a>
+                    <ul class="accessiblelinks textSizing visible" aria-label="Font size and Contrast controls">
+                        <li class="fontSizeEvent"><a data-selected-text="selected" data-event-type="increase" href="javascript:void(0);" data-label="Font Size Increase" title="Font Size Increase" aria-label="Font Size Increase"><span aria-hidden="true">A+</span> <span class="tcon">Font Size Increase</span></a></li>
+                        <li class="fontSizeEvent"><a data-selected-text="selected" data-event-type="normal" href="javascript:void(0);" data-label="Normal Font" title="Normal Font - selected" aria-label="Normal Font - selected" class="link-selected"><span aria-hidden="true">A</span> <span class="tcon">Normal Font</span></a></li>
+                        <li class="fontSizeEvent"><a data-selected-text="selected" data-event-type="decrease" href="javascript:void(0);" data-label="Font Size Decrease" title="Font Size Decrease" aria-label="Font Size Decrease"><span aria-hidden="true">A-</span> <span class="tcon">Font Size Decrease</span></a></li>
+                        <li class="highContrast dark tog-con">
+                            <a href="javascript:void(0);" title="High Contrast" aria-label="High Contrast"><span aria-hidden="true">A</span> <small class="tcon">High Contrast</small></a>
+                        </li>
+                        <li class="highContrast light">
+                            <a class="" href="javascript:void(0);" title="Normal Contrast - Selected" aria-label="Normal Contrast - Selected"><span aria-hidden="true">A</span> <small class="tcon">Normal Contrast</small></a>
+                        </li>
+                    </ul>
+                  </li>
+                  <li class="languageCont" aria-label="Change Language">
+                    <a href="javascript:void(0);" class="language link-selected" aria-label="English - Selected" title="English - Selected" role="button" data-toggle="dropdown">English</a>
+                    <ul class="socialIcons">
+                      <li class="lang-item lang-item-55 lang-item-hi">
+                        <a href="#" aria-label="தமிழ்" title="தமிழ்" data-page_title="ta">தமிழ்</a>
+                      </li>
+                    </ul>
+                  </li>
                 </ul>
               </div>
             </div>
             <div class="push-left">
               <div class="govBranding">
                 <ul>
-                    <li>
+                    <!-- <li>
                         <a lang="hi" href="https://uk.gov.in/" onclick="return confirm('You are being redirected to an external website. Please note that RAJBHAWAN UTTARAKHAND cannot be held responsible for external websites content &amp; privacy policies.');" aria-label="उत्तराखंड सरकार - External site that opens in a new window" title="उत्तराखंड सरकार - External site that opens in a new window" target="_blank">
-                            उत्तराखंड सरकार                                     </a></li>
+                            Prisons                                     </a>
+                    </li> -->
                     <li>
-                        <a lang="en" href="https://uk.gov.in/" onclick="return confirm('You are being redirected to an external website. Please note that RAJBHAWAN UTTARAKHAND cannot be held responsible for external websites content &amp; privacy policies.');" aria-label="Government of Uttarakhand - External site that opens in a new window" title="Government of Uttarakhand - External site that opens in a new window" target="_blank">
-                            Government of Uttarakhand                                    </a>
+                        <a lang="en" href="#" title="Government of Tamil Nadu - External site that opens in a new window" target="_blank">
+                          Government of Tamil Nadu                                   
+                        </a>
                     </li>
                 </ul>
               </div>        
             </div>
           </div>
         </div>
-        <!-- <div class="row gx-0 d-none d-lg-flex">
-          <div class="col-lg-7 px-5 text-start">
-            <div class="h-100 d-inline-flex align-items-center me-4">
-              <small>Department of Prisons and Correctional Services</small>
-            </div>
-          </div>
-          <div class="col-lg-4 px-5 text-end">
-            <div class="h-100 d-inline-flex align-items-center">
-              <a class="btn btn-sm-square text-primary me-1" href=""
-                ><i class="bx bxl-facebook"></i
-              ></a>
-              <a class="btn btn-sm-square text-primary me-1" href=""
-                ><i class="bx bxl-twitter"></i
-              ></a>
-              <a class="btn btn-sm-square text-primary me-1" href=""
-                ><i class="bx bxl-linkedin"></i
-              ></a>
-              <a class="btn btn-sm-square text-primary me-0" href=""
-                ><i class="bx bxl-instagram"></i
-              ></a>
-              <div>
-                <nav id="navbar1" class="navbar">
-                  <ul>
-                    <li class="dropdown">
-                      <a class="nav-link" href="#">ENG</a>
-                      <ul>
-                        <li><a href="#" data-page_title="ta">தமிழ்</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
     <!-- Navbar Start -->
-    <div id="header" class="container justify-content-between">
-      <div class="row">
+    <div id="header" class="header-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-7">
+            <div class="logo">
+              <a href="https://governoruk.gov.in/" title="Go to home" class="site_logo" rel="home">
+                <img id="logo" class="emblem" src="images/logo/TamilNadu_Logo.svg.png" alt="State Emblem of India">
+                  <div class="logo_text">
+                    <h1 class="h1-logo">Department of Prisons and Correctional Services</h1>
+                    <h6>Government of Tamil Nadu</h6>
+                  </div>
+                </a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-5">
+            <div class="header-right hidden-xs push-right">
+              <!-- <a aria-label="Digital India Image - External site that opens in a new window" href="https://www.digitalindia.gov.in/" target="_blank" title="Digital India Image" onclick="return confirm('You are being redirected to an external website. Please note that RAJBHAWAN UTTARAKHAND cannot be held responsible for external websites content &amp; privacy policies.');">
+                <img class="sw-logo" src="https://cdnbbsr.s3waas.gov.in/s3978d76676f5e7918f81d28e7d092ca0d/uploads/2019/03/2019031587.png" alt="Digital India">
+              </a> -->
+            </div>
+            <!-- <a class="menuToggle" href="javascript:void(0);"> <span class="icon-menu" aria-hidden="true"></span> <span class="menu-text">Menu Toggle</span> </a> -->
+        </div>
+        </div>
+      </div>
+      <!-- <div class="row">
         <div class="col-lg-2 text-center">
             <img class="prison_logo" src="images/logo/TamilNadu_Logo.svg.png" alt=""/>
         </div>
@@ -147,19 +166,19 @@ $db = $database->openConnection();
             </a>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
     <div id="menu-bar">
       <div class="container">
         <nav id="navbar" class="navbar">
           <ul>
-            <li class="nav-link scrollto "><a href="index.php"><i class="bx bxs-home-alt-2"></a></i></li>
-            <?php $sql ="SELECT * FROM public.menus ORDER BY menu_id ASC ";
+            <li class="nav-link scrollto"><a href="index.php"><i class="bx bxs-home-alt-2"></a></i></li>
+            <?php $sql ="SELECT * FROM menus ORDER BY menu_id ASC";
             foreach ($db->query($sql) as $row) {
             ?>
             <li class="dropdown">
-              <a class="nav-link scrollto" href="#hero"><span><?php echo $row['menu_name_en'];?>
-              <!-- <i class="bi bi-chevron-down"></i> -->
+              <a class="nav-link scrollto"><span><?php echo $row['menu_name_en'];?>
+              <i class="bi bi-chevron-down"></i>
               </span></a>
               <ul>
                 <?php
