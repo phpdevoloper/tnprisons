@@ -234,7 +234,7 @@ a.menuToggle {
   align-items: center;
   justify-content: space-between;
   padding: 10px 0 10px 15px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   color: #0b2341;
   white-space: nowrap;
@@ -333,6 +333,56 @@ a.menuToggle {
     left: -100%;
   }
 }
+
+.navbar li.moreNav {
+  float: right !important;
+}
+.navbar li.moreNav a {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  max-width: 130px;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+.navbar li.moreNav a .bi-list{
+  color: #0b2341;
+  font-size: 28px;
+  cursor: pointer;
+}
+.navbar li.moreNav>a:hover {
+  background: #9e6b22;
+}
+
+#overflowMenu {
+  position: fixed;
+  right: -300px;
+  top: 0;
+  background: #333333;
+  min-width: 300px;
+  height: 100%;
+  z-index: 99;
+}
+#overflowMenu .ofMenu {
+  margin-top: 5vh;
+  padding-top: 20px;
+}
+#overflowMenu .closeMenu {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: #fff;
+  display: inline-block;
+  padding: 4px;
+}
+
+#overflowMenu .ofMenu ul li a {
+  padding: 10px 20px;
+  color: #fff;
+  text-transform: uppercase;
+  display: block;
+}
+
+
 
 /**
 * Mobile Navigation 

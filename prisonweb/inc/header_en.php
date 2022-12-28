@@ -1,6 +1,4 @@
 <?php include('inc/DBConnection.php'); 
-$database = new DBConnection();
-$db = $database->openConnection();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -174,7 +172,17 @@ $db = $database->openConnection();
           <ul>
             <li class="nav-link scrollto"><a href="index.php"><i class="bx bxs-home-alt-2"></a></i></li>
             <?php $sql ="SELECT * FROM menus ORDER BY menu_id ASC";
+$res = pg_query($db,$sql);
+
+$rows = pg_affected_rows($res);
+$menus = pg_fetch_all($res);
+            var_dump($menus[0]['menu_name_en']);
+            var_dump($menus[1]['menu_name_en']);
+            var_dump($menus[2]['menu_name_en']);
+            var_dump($menus[3]['menu_name_en']);
+            var_dump($menus[4]['menu_name_en']);
             foreach ($db->query($sql) as $row) {
+
             ?>
             <li class="dropdown">
               <a class="nav-link scrollto"><span><?php echo $row['menu_name_en'];?>
@@ -189,11 +197,28 @@ $db = $database->openConnection();
                     <?php  }else {?>
                     <?php } } ?>
                 </ul>
-            </li>
+              </li>
             <?php } ?>
+            <li class="moreNav"><a href="#" aria-label="More Menu" title="More Menu"><i class="bi bi-list"></i>More </a></li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
+         <!-- Toggle menu -->
+            <div id="overflowMenu" style="right: -300px;">
+              <div class="ofMenu">
+                <ul>
+                  <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2477" aria-expanded="false"><a href="javascript:void(0)">Media Corner</a>
+                    <ul class="sub-menu" style="padding-top: 0px; padding-bottom: 0px; height: 109.134px; display: none; margin-top: 0px; margin-bottom: 0px;">
+                      <li id="menu-item-37924" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-37924"><a href="https://karur.nic.in/category/press-release/">Press Release</a></li>
+                      <li id="menu-item-2496" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2496"><a href="https://karur.nic.in/photo-gallery/">Photo Gallery</a></li>
+                      <li id="menu-item-32754" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-32754"><a href="https://karur.nic.in/video-gallery/">Video Gallery</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <a title="Close" href="javascript:void(0);" class="closeMenu"><i class="bi bi-x" style="font-size: 27px;"></i></a>
+            </div>
+          <!--End Toggle menu -->
       </div>
     </div>
     <!-- Navbar End -->

@@ -157,28 +157,27 @@ $db = $database->openConnection();
       </div>
     </div>
     <div id="menu-bar">
-      <div class="container">
-        <nav id="navbar" class="navbar">
-          <ul>
-            <?php $sql ="SELECT * FROM public.menus ORDER BY menu_id ASC ";
-            foreach ($db->query($sql) as $row) {
-            ?>
-            <li class="dropdown">
-              <a class="nav-link scrollto"><span><?php echo $row['menu_name_ta'];?>
-              <i class="bi bi-chevron-down"></i>
-              </span></a>
-              <ul><?php
-                  $sql ="SELECT * FROM sub_menus where cate_code='".$row['menu_id']."' ORDER BY menu_id ASC ";
-                  foreach ($db->query($sql) as $menus) { ?>
-                 <?php if ($menus['cate_code']) { ?>
-                        <li><a href="<?php echo $menus['page_url'];?>"><?php echo $menus['menu_name_ta'];?></a></li>
-                    <?php  }else {?>
-                    <?php } } ?>
-                </ul>
-            </li>
-            <?php } ?>
-          </ul>
-          <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav>
-      </div>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <?php $sql ="SELECT * FROM public.menus ORDER BY menu_id ASC";
+          foreach ($db->query($sql) as $row) {
+          ?>
+          <li class="dropdown">
+            <a class="nav-link scrollto"><?php echo $row['menu_name_ta'];?>
+            <i class="bi bi-chevron-down"></i>
+            </a>
+            <ul><?php
+                $sql ="SELECT * FROM sub_menus where cate_code='".$row['menu_id']."' ORDER BY menu_id ASC";
+                foreach ($db->query($sql) as $menus) { ?>
+                <?php if ($menus['cate_code']) { ?>
+                      <li><a href="<?php echo $menus['page_url'];?>"><?php echo $menus['menu_name_ta'];?></a></li>
+                  <?php  }else {?>
+                  <?php } } ?>
+              </ul>
+          </li>
+          <?php } ?>
+          <li class="moreNav"><a href="#" aria-label="More Menu" title="More Menu"><span class="icon-menu" aria-hidden="true"></span>More </a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
     </div>
