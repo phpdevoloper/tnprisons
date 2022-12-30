@@ -42,9 +42,14 @@ $(document).ready(function(){
             contentType: false,
             processData: false,
             success: function (response) {
+                console.log(response);
                 var data = JSON.parse(response);
                 if (data.code == 200) {
                     location.href = 'dashboard.php';
+                }else if(data.code == 500) {
+                    toastr.error(data.msg);
+                }else{
+                    toastr.error(data.msg);
                 }
             },
         });
@@ -299,6 +304,21 @@ $(document).ready(function(){
             },
         });
 
+    });
+
+    $(".nav-link").on("click", function(e) {
+        var menu_id = $(this).attr("data-menu_id");
+        $.ajax({
+            method: "POST",
+            url: "menu_session.php",
+            data: { 
+                menu_id:menu_id,
+            },
+            dataType:"json",
+            success: function (response) {
+                
+            },
+        });
     });
 
 });

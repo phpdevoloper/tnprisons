@@ -3,6 +3,9 @@ session_start();
 if (isset($_SESSION)) {
 include("inc/header1.php");
 include_once 'inc/DBConnection.php';
+$sql = "SELECT * FROM menus WHERE menu_id='".$_SESSION['menu_id']."' ORDER BY menu_id ASC";
+$res = pg_query($db,$sql);
+$menus = pg_fetch_assoc($res);
 ?>
 
 <div class="content-wrapper">
@@ -11,12 +14,12 @@ include_once 'inc/DBConnection.php';
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>About Us</h1>
+            <h1><?php echo $menus['menu_name_en'];?></h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-              <li class="breadcrumb-item active"><a href="menu.php">About Us</a></li>
+              <li class="breadcrumb-item active"><a href="menu.php"><?php echo $menus['menu_name_en'];?></a></li>
             </ol>
           </div>
         </div>
@@ -43,7 +46,7 @@ include_once 'inc/DBConnection.php';
                   <?php 
                   try {
 
-                      $sql = "SELECT * FROM public.sub_menus WHERE cate_code='".$_SESSION['menu_id']."' ORDER BY menu_id ASC";
+                      $sql = "SELECT * FROM sub_menus WHERE cate_code='".$_SESSION['menu_id']."' ORDER BY menu_id ASC";
                       $res = pg_query($db,$sql);
                       foreach (pg_fetch_all($res) as $row) { ?>
                           <tr>

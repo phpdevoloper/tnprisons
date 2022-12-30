@@ -220,6 +220,7 @@ a.menuToggle {
   margin: 0;
   padding: 0;
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
   align-items: center;
 }

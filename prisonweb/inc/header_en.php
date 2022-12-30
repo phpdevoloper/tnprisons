@@ -1,10 +1,11 @@
-<?php include('inc/DBConnection.php'); 
+<?php 
+include('inc/DBConnection.php'); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 
     <title>Prisons Department</title>
     <meta content="" name="description" />
@@ -22,7 +23,7 @@
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet" />
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet"/>
     <link
       href="assets/vendor/bootstrap/css/bootstrap.min.css"
       rel="stylesheet"
@@ -39,7 +40,7 @@
     <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
-    <!-- Template Main CSS File -->
+  <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet" />
 
     <!-- =======================================================
@@ -133,7 +134,7 @@
         <div class="row">
           <div class="col-lg-8 col-md-8 col-sm-8 col-xs-7">
             <div class="logo">
-              <a href="https://governoruk.gov.in/" title="Go to home" class="site_logo" rel="home">
+              <a href="index.php" title="Go to home" class="site_logo" rel="home">
                 <img id="logo" class="emblem" src="images/logo/TamilNadu_Logo.svg.png" alt="State Emblem of India">
                   <div class="logo_text">
                     <h1 class="h1-logo">Department of Prisons and Correctional Services</h1>
@@ -172,17 +173,9 @@
           <ul>
             <li class="nav-link scrollto"><a href="index.php"><i class="bx bxs-home-alt-2"></a></i></li>
             <?php $sql ="SELECT * FROM menus ORDER BY menu_id ASC";
-$res = pg_query($db,$sql);
-
-$rows = pg_affected_rows($res);
-$menus = pg_fetch_all($res);
-            var_dump($menus[0]['menu_name_en']);
-            var_dump($menus[1]['menu_name_en']);
-            var_dump($menus[2]['menu_name_en']);
-            var_dump($menus[3]['menu_name_en']);
-            var_dump($menus[4]['menu_name_en']);
-            foreach ($db->query($sql) as $row) {
-
+            $res = pg_query($db,$sql);
+            $menus = pg_fetch_all($res);
+            foreach ($menus as $row) {
             ?>
             <li class="dropdown">
               <a class="nav-link scrollto"><span><?php echo $row['menu_name_en'];?>
@@ -191,20 +184,22 @@ $menus = pg_fetch_all($res);
               <ul>
                 <?php
                   $sql ="SELECT * FROM sub_menus where cate_code='".$row['menu_id']."' ORDER BY menu_id ASC ";
-                  foreach ($db->query($sql) as $menus) { ?>
+                  $res = pg_query($db,$sql);
+                  $menus1 = pg_fetch_all($res);
+                  foreach ($menus1 as $menus) { ?>
                  <?php if ($menus['cate_code']) { ?>
-                        <li><a href="<?php echo $menus['page_url'];?>"><?php echo $menus['menu_name_en'];?></a></li>
+                        <li><a href="<?php echo $menus['page_url'];?>" data-menu_id="<?php echo $menus['menu_id'];?>"><?php echo $menus['menu_name_en'];?></a></li>
                     <?php  }else {?>
                     <?php } } ?>
                 </ul>
               </li>
             <?php } ?>
-            <li class="moreNav"><a href="#" aria-label="More Menu" title="More Menu"><i class="bi bi-list"></i>More </a></li>
+            <!-- <li class="moreNav"><a href="#" aria-label="More Menu" title="More Menu"><i class="bi bi-list"></i>More </a></li> -->
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
          <!-- Toggle menu -->
-            <div id="overflowMenu" style="right: -300px;">
+            <!-- <div id="overflowMenu" style="right: -300px;">
               <div class="ofMenu">
                 <ul>
                   <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2477" aria-expanded="false"><a href="javascript:void(0)">Media Corner</a>
@@ -217,7 +212,7 @@ $menus = pg_fetch_all($res);
                 </ul>
               </div>
               <a title="Close" href="javascript:void(0);" class="closeMenu"><i class="bi bi-x" style="font-size: 27px;"></i></a>
-            </div>
+            </div> -->
           <!--End Toggle menu -->
       </div>
     </div>

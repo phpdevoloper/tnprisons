@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include_once 'inc/DBConnection.php';
 ?>
 <!DOCTYPE html>
@@ -180,7 +181,8 @@ include_once 'inc/DBConnection.php';
           foreach ($menu as $row) {
           ?>
           <li class="nav-item">
-            <a href="<?php echo !empty($row["page_url"]) ? $row["page_url"] : '#';?>" class="nav-link <?php echo basename($_SERVER['SCRIPT_FILENAME']) == $row['page_url'] ? 'active':''?>">
+            <a href="<?php echo !empty($row["page_url"]) ? $row["page_url"] : '#';?>" class="nav-link <?php echo basename($_SERVER['SCRIPT_FILENAME']) == $row['page_url'] ? 'active':''?>" 
+            data-menu_id = <?php echo $row["menu_id"]?>>
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 <?php echo $row['menu_name_en'];?>

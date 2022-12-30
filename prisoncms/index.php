@@ -26,19 +26,17 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <!-- <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-              <label for="remember">
-                Remember Me
-              </label>
-            </div>
-          </div> -->
-          <!-- /.col -->
-          <div class="col-4">
+        <div class="input-group mb-3">
+          <img src="captcha/image.php" alt="CAPTCHA" id="image-captcha">
+          <a href="#" id="refresh-captcha" class="align-middle" title="refresh"><span class="fas fa-redo-alt align-middle"
+           style="margin-left: 20px; color:brown"></span></a>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" name="token" id="token" class="form-control" placeholder="Enter the captch">
+        </div>
+        <div>
             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-          </div>
+        </div>
           <!-- /.col -->
         </div>
       </form>
@@ -66,3 +64,12 @@
 </div>
 <!-- /.login-box -->
 <?php include("inc/login_footer.php"); ?>
+<script type="text/javascript">
+		var refreshButton = document.getElementById("refresh-captcha");
+		var captchaImage = document.getElementById("image-captcha");
+
+		refreshButton.onclick = function(event) {
+			event.preventDefault();
+			captchaImage.src = './captcha/image.php?' + Date.now();
+		};
+	</script>

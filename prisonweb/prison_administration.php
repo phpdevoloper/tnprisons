@@ -1,9 +1,4 @@
-<?php include("inc/DBConnection.php"); 
-include("session_lang.php");
-$sql = "SELECT * FROM sub_menus WHERE menu_id='".$_SESSION['menu_id']."'";
-$res = pg_query($db,$sql);
-$menus = pg_fetch_assoc($res);
-?>
+<?php include("inc/header_en.php");?>
     <main>
         <div class="banner-wrapper innerBanner">
             <img src="https://cdnbbsr.s3waas.gov.in/s3978d76676f5e7918f81d28e7d092ca0d/uploads/2021/03/2021030248.jpg" alt="">

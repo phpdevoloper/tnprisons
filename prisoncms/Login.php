@@ -8,15 +8,23 @@ try
     $user_name = $_POST["user_name"];
     $user_pass = $_POST["user_pass"];
 
-    $sql = "SELECT * FROM user_info WHERE user_name ='$user_name' AND user_passwd = '$user_pass'" ;
-    $affectedrows  = pg_query($db,$sql);
-    $rows = pg_fetch_all($affectedrows);
-    $_SESSION['user_data'] = $rows[0]['user_name'];
-   if(isset($rows))
-    {
-       echo json_encode(["code"=>"200","msg"=>$rows]);
+    $token = strtolower($_POST['token']);
+
+    // validate captcha code 		
+	if (isset($_SESSION['captcha_token']) && $_SESSION['captcha_token'] == $token) {
+
+        $sql = "SELECT * FROM user_info WHERE user_name ='$user_name' AND user_passwd = '$user_pass'" ;
+        $affectedrows  = pg_query($db,$sql);
+        $rows = pg_fetch_assoc($affectedrows);
+        $res 	= pg_num_rows($affectedrows);
+        if($res>0){
+            $_SESSION['user_data'] = $rows['user_name'];
+            echo json_encode(["code"=>"200","msg"=>"Login Succesfully"]);
+        }else{
+            echo json_encode(["code"=>"500","msg"=>"Incorrect Username or Password"]);
+        }
     }else{
-        echo json_encode(["code"=>"500","msg"=>"Something went wrong"]);
+        echo json_encode(["code"=>"502","msg"=>"Error in captch"]);
     }          
     
 }

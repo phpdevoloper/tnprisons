@@ -143,9 +143,6 @@ function openMenu() {
     }
 }
 
-// function menuMaxheight() {
-//     var mmh = jQuery(window).height() - (jQuery('#topBar').height() + jQuery('.header-wrapper').height());
-// }
 
 function responsiveAccordion() {
     if (jQuery(document).width() < 640) {
@@ -195,12 +192,23 @@ jQuery(document).ready(function () {
         }
     });
 });
-// jQuery(document).ready(function(){
-//     if ( jQuery('#navbar ul li').length > 6 ) { 
-//         var count = jQuery('#navbar li').length;
-//         console.log(count);
-//         jQuery('#overflowMenu').hide();
-//     }
-// });
+
+$(document).ready(function(){
+    $(".dropdown li a").on("click", function (e) {
+        var menu_id = $(this).attr("data-menu_id");
+        console.log(menu_id);
+        $.ajax({
+            method: "POST",
+            url: "menu_session.php",
+            data: { 
+                menu_id:menu_id,
+            },
+            dataType:"json",
+            success: function (response) {
+                location.reload(); 
+            },
+        });
+    });
+});
 
 
