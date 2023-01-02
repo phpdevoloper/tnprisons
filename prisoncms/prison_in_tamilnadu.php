@@ -36,6 +36,7 @@ $menus = pg_fetch_assoc($res);
                 <table class="table table-striped">
                   <thead>
                       <tr>
+                        <th>#</th>
                           <th>Title</th>
                           <th>English</th>
                           <th>Tamil</th>
@@ -48,8 +49,10 @@ $menus = pg_fetch_assoc($res);
 
                       $sql = "SELECT * FROM sub_menus WHERE cate_code='".$_SESSION['menu_id']."' ORDER BY menu_id ASC";
                       $res = pg_query($db,$sql);
+                      $i = 1;
                       foreach (pg_fetch_all($res) as $row) { ?>
-                          <tr>
+                        <tr>
+                          <td><a href="#" data-toggle="collapse" data-target="#demo<?php echo $i; ?>" class="accordion-toggle"><i class="fas fa-plus-circle"></i></a></td>
                           <td><?php echo $row["menu_name_en"]; ?></td>
                           <td>
                             <?php if (empty($row["menu_name_en"])) { ?>
@@ -68,8 +71,11 @@ $menus = pg_fetch_assoc($res);
                               data-menu_name_ta="<?php echo $row["menu_name_ta"];?>"><i class="fas fa-edit" ></i></a>
                             <?php } ?>
                           </td>
-                      </tr>
-                  <?php }
+                        </tr>
+                        <tr class="accordian-body collapse" id="demo<?php echo $i; ?>">
+                          <td><?php echo $row["menu_name_en"];?></td>
+                        </tr>
+                  <?php $i++; }
                   }
                   catch (PDOException $e)
                   {
