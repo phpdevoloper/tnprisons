@@ -74,6 +74,8 @@ $menus = pg_fetch_assoc($res);
                         </tr>
                         <tr class="accordian-body collapse" id="demo<?php echo $i; ?>">
                           <td><?php echo $row["menu_name_en"];?></td>
+                          <td><a href="#"><i class="fas fa-plus"></i></a></td>
+                          <td><a href="#"><i class="fas fa-plus"></i></a></td>
                         </tr>
                   <?php $i++; }
                   }

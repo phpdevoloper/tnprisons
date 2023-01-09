@@ -82,7 +82,7 @@ include("session_lang.php");
               <div class="section-title">
                 <h2>ABOUT US</h2>
               </div>
-              <div class="box aos-init aos-animate box-back">
+              <div class="box aos-init aos-animate box-back about-box">
                 <p class="justify-center">
                   Prisons serve the public by keeping in safe custody those
                   committed by the courts and treating them with humanity and
@@ -98,7 +98,7 @@ include("session_lang.php");
               <div class="section-title">
                 <h2>DGP'S MESSAGE</h2>
               </div>
-              <div class="box aos-init aos-animate">
+              <div class="box aos-init aos-animate dgp_msg">
                 <div class="">
                   <a
                     href="images/DGP/AMARAESH PUJARI.jpg"
@@ -118,7 +118,18 @@ include("session_lang.php");
               <div class="section-title">
                 <h2>NEWS / EVENTS</h2>
               </div>
-              <div class="box aos-init aos-animate box-back">
+              <div class="aos-init aos-animate box-back news-box">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>
+                  </li>
+                </ul>
                 <ul>
                   <li><i class="bx bx-check"></i> Prison unlockup Report</li>
                   <li>

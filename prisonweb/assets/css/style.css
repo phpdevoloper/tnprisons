@@ -1783,8 +1783,24 @@ px
   background: #fff;
   text-align: center;
 }
-.pricing .box:hover {
+.news-box{
+  height: 360px;
+  margin-bottom: 30px;
+  box-shadow: 0px 5px 90px 0px rgba(110, 123, 131, 0.1);
+  background: #fff;
+  padding: 0px 17px;
+}
+.about-box{
+  border-radius: 10%;
+}
+
+.pricing .about-box:hover {
   border: 1px solid #f06f54;
+}
+
+.dgp_msg{
+  border: 1px solid #f06f54;
+  border-radius: 10%;
 }
 
 .pricing h3 {
