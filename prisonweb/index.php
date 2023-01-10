@@ -100,17 +100,18 @@ include("session_lang.php");
               </div>
               <div class="box aos-init aos-animate dgp_msg">
                 <div class="">
-                  <a
-                    href="images/DGP/AMARAESH PUJARI.jpg"
-                    class="portfolio-lightbox preview-link"
-                  >
-                    <img
-                      src="images/DGP/AMARAESH PUJARI.jpg"
-                      alt=""
-                      style="margin-bottom: 5px; max-height: 198px;width: 50%;"/></a>
+                  <a href="images/DGP/AMARAESH PUJARI.jpg" class="portfolio-lightbox preview-link">
+                    <img src="images/DGP/AMARAESH PUJARI.jpg" alt="" style="margin-bottom: 5px;
+    max-height: 258px;
+    width: 78%;
+    border: 3px solid;
+    border-radius: 141px;
+    transform: translateY(-4px);
+    "/>
+                  </a>
                   <h5 style="font-weight:600">AMARAESH PUJARI, I.P.S.</h5>
                   <p>Director General of Prisons and Correctional Services</p>
-                  <h5><a href="#">Message &raquo;</a></h5>
+                  <h5><a href="#" class="more-read">Message &raquo;</a></h5>
                 </div>
               </div>
             </div>
@@ -121,28 +122,30 @@ include("session_lang.php");
               <div class="aos-init aos-animate box-back news-box">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
+                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="home" aria-selected="true">News</button>
                   </li>
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>
+                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Events</button>
                   </li>
                 </ul>
-                <ul>
-                  <li><i class="bx bx-check"></i> Prison unlockup Report</li>
-                  <li>
-                    <i class="bx bx-check"></i>சுதந்திர தின விழா -Independence
-                    Day Message / Photos
-                  </li>
-                  <li><i class="bx bx-check"></i> Prisoner Reform</li>
-                  <li>
-                    <i class="bx bx-check"></i>
-                    Become our Reformation Partner more
-                  </li>
-                </ul>
-                <div><h5><a href="#">more &raquo;</a></h5></div>
+                <div class="tab-content" id="nav-tabContent">
+                  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <ul>
+                      <li><i class="bx bx-check"></i> Prison unlockup Report</li>
+                      <li>
+                        <i class="bx bx-check"></i>சுதந்திர தின விழா -Independence
+                        Day Message / Photos
+                      </li>
+                      <li><i class="bx bx-check"></i> Prisoner Reform</li>
+                      <li>
+                        <i class="bx bx-check"></i>
+                        Become our Reformation Partner more
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">2</div>
+                </div>
+                <!-- <div><h5><a href="#">more &raquo;</a></h5></div> -->
               </div>
             </div>
           </div>
