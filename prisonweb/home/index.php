@@ -72,10 +72,45 @@ include("session_lang.php");
     </a>
   </div>
 </section>
-    <!-- End Hero -->
+<!-- End Hero -->
 
-    <main id="main">
-      <section class="pricing">
+<main id="main">
+  <!-- <div class="news-direction d-flex">
+    <div class="container">
+      <div class="event-title">
+        <span>Latest News :</span>
+      </div>
+      <div>
+        <marquee behavior="" direction="left">
+          <ul style="list-style">
+            <li>Tenders list</li>
+            <li>Recruitment list</li>
+          </ul>
+        </marquee>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="scrol-news">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2">
+          <div class="news-title text-center p-3">
+            <span>Latest News:</span>
+          </div>
+        </div>
+        <div class="col-lg-10">
+          <div class="p-3"> 
+            <ul class="news-list">
+              <li>Tender list 1</li>
+              <li>Tender list 2</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="pricing">
         <div class="container" data-aos="fade-up">
           <div class="row align-items-center">
             <div class="col-lg-4">
